@@ -39,37 +39,79 @@ function initCarouselIndicators(containerId, goTo) {
   });
 }
 
-function initMobileCarousel() {
-  const track = document.getElementById("carousel-mobile-track");
-  const dots = document.getElementById("carousel-dots-mobile");
-  if (!track || !dots) return;
+window.scrollToMobileSlide = function (index) {
+  const container = document.getElementById("carousel-mobile-gsap");
+  if (!container) return;
+  // Use absolute document math to prevent nested offset bugs
+  const absoluteTop = container.getBoundingClientRect().top + window.scrollY;
+  const scrollTarget = absoluteTop + (index * window.innerHeight);
+  
+  window.scrollTo({
+    top: scrollTarget,
+    behavior: "smooth"
+  });
+};
 
+function initMobileCarousel() {
+  const container = document.getElementById("carousel-mobile-gsap");
+  const strip = document.getElementById("carousel-mobile-track");
+  const dotsContainer = document.getElementById("carousel-dots-mobile");
+  if (!container || !strip) return;
+
+  const slides = 4;
   let activeSlide = 0;
 
-  function goTo(i) {
-    track.scrollTo({ left: i * track.clientWidth, behavior: "smooth" });
+  function updateActiveState(idx) {
+    if (idx === activeSlide) return;
+    activeSlide = idx;
+    
+    // Update pills
+    for (let i = 0; i < slides; i++) {
+        const pill = document.getElementById(`pill-nav-${i}`);
+        if(pill) {
+            if (i === idx) {
+                pill.className = "flex-1 bg-black text-white rounded-[8px] py-1 min-[250px]:py-1.5 text-[clamp(9px,3vw,14px)] font-medium transition-colors text-center shadow-sm px-1";
+            } else {
+                pill.className = "flex-1 text-[#4b5563] hover:text-black py-1 min-[250px]:py-1.5 text-[clamp(9px,3vw,14px)] font-medium transition-colors text-center bg-transparent rounded-[8px] px-1";
+            }
+        }
+    }
   }
 
-  initCarouselIndicators("carousel-indicators-mobile", goTo);
+  let mm = gsap.matchMedia();
+  mm.add("(max-width: 1023px)", () => {
+    ScrollTrigger.create({
+      trigger: container,
+      start: "top top",
+      end: "bottom bottom",
+      scrub: 1, // Smooth scrolling
+      snap: {
+        snapTo: 1 / 3, // Snap to index (4 slides = 3 durations)
+        duration: { min: 0.2, max: 0.5 },
+        delay: 0.1,
+        ease: "power1.inOut"
+      },
+      onUpdate: (self) => {
+        // Move the strip horizontally
+        const xMove = -self.progress * 75; // moves from 0 to -75% of the 400vw width
+        gsap.to(strip, { xPercent: xMove, duration: 0.1, overwrite: "auto" });
 
-  dots.querySelectorAll(".carousel-dot").forEach((dot) => {
-    dot.addEventListener("click", () => goTo(Number(dot.dataset.dot)));
+        // Update pills based on progress
+        const snappedIdx = Math.round(self.progress * 3);
+        updateActiveState(snappedIdx);
+
+        // Update Progress Bars continuously
+        for (let i = 0; i < slides; i++) {
+          const fillBar = document.getElementById(`prog-mobile-${i}`);
+          if (fillBar) {
+            // Calculate the exact fractional completion of this segment
+            const segmentProgress = Math.max(0, Math.min(1, (self.progress * slides) - i));
+            fillBar.style.width = `${segmentProgress * 100}%`;
+          }
+        }
+      },
+    });
   });
-
-  track.addEventListener(
-    "scroll",
-    () => {
-      const idx = Math.round(track.scrollLeft / track.clientWidth);
-      if (idx !== activeSlide) {
-        activeSlide = idx;
-        updateCarouselIndicators(activeSlide);
-        dots.querySelectorAll(".carousel-dot").forEach((dot, i) => {
-          dot.className = `carousel-dot rounded-full transition-all duration-300 ${i === activeSlide ? "w-5 h-2 bg-gray-700" : "w-2 h-2 bg-gray-300"}`;
-        });
-      }
-    },
-    { passive: true },
-  );
 }
 
 function initDesktopCarousel() {
@@ -79,38 +121,41 @@ function initDesktopCarousel() {
 
   const slides = 4;
 
-  ScrollTrigger.create({
-    trigger: container,
-    start: "top top",
-    end: "bottom bottom",
-    scrub: 1, // Smooth scrolling
-    snap: {
-      snapTo: 1 / 3, // Snap to index (4 slides = 3 durations)
-      duration: { min: 0.2, max: 0.5 },
-      delay: 0.1,
-      ease: "power1.inOut"
-    },
-    onUpdate: (self) => {
-      // 1. Move the strip horizontally
-      const xMove = -self.progress * 75; // moves from 0 to -75% of the 400vw width
-      gsap.to(strip, { xPercent: xMove, duration: 0.1, overwrite: "auto" });
+  let mm = gsap.matchMedia();
+  mm.add("(min-width: 1024px)", () => {
+    ScrollTrigger.create({
+      trigger: container,
+      start: "top top",
+      end: "bottom bottom",
+      scrub: 1, // Smooth scrolling
+      snap: {
+        snapTo: 1 / 3, // Snap to index (4 slides = 3 durations)
+        duration: { min: 0.2, max: 0.5 },
+        delay: 0.1,
+        ease: "power1.inOut"
+      },
+      onUpdate: (self) => {
+        // 1. Move the strip horizontally
+        const xMove = -self.progress * 75; // moves from 0 to -75% of the 400vw width
+        gsap.to(strip, { xPercent: xMove, duration: 0.1, overwrite: "auto" });
 
-      // 2. Update Progress Bars continuously
-      for (let i = 0; i < slides; i++) {
-        const fillBar = document.getElementById(`prog-${i}`);
-        if (fillBar) {
-          // Calculate the exact fractional completion of this segment
-          const segmentProgress = Math.max(0, Math.min(1, (self.progress * slides) - i));
-          fillBar.style.width = `${segmentProgress * 100}%`;
+        // 2. Update Progress Bars continuously
+        for (let i = 0; i < slides; i++) {
+          const fillBar = document.getElementById(`prog-${i}`);
+          if (fillBar) {
+            // Calculate the exact fractional completion of this segment
+            const segmentProgress = Math.max(0, Math.min(1, (self.progress * slides) - i));
+            fillBar.style.width = `${segmentProgress * 100}%`;
+          }
         }
-      }
 
-      // 3. Fade the "Scroll Down" indicator out on the last slide
-      const scrollDown = document.querySelector(".scroll-down-container");
-      if (scrollDown) {
-        scrollDown.style.opacity = self.progress > 0.9 ? 0 : 1;
-      }
-    },
+        // 3. Fade the "Scroll Down" indicator out on the last slide
+        const scrollDown = document.querySelector(".scroll-down-container");
+        if (scrollDown) {
+          scrollDown.style.opacity = self.progress > 0.9 ? 0 : 1;
+        }
+      },
+    });
   });
 }
 
@@ -200,18 +245,21 @@ function initDesktopTwoAgents() {
   };
 
   const cont = document.getElementById("two-agents-desktop");
-  ScrollTrigger.create({
-    trigger: cont,
-    start: "top top",
-    end: "bottom bottom",
-    onUpdate(self) {
-      gsap.set(strip, { xPercent: -self.progress * 50 });
-      const idx = Math.round(self.progress);
-      if (idx !== activeAgent) {
-        activeAgent = idx;
-        updateDesktopTabs(idx);
-      }
-    },
+  let mm = gsap.matchMedia();
+  mm.add("(min-width: 1024px)", () => {
+    ScrollTrigger.create({
+      trigger: cont,
+      start: "top top",
+      end: "bottom bottom",
+      onUpdate(self) {
+        gsap.set(strip, { xPercent: -self.progress * 50 });
+        const idx = Math.round(self.progress);
+        if (idx !== activeAgent) {
+          activeAgent = idx;
+          updateDesktopTabs(idx);
+        }
+      },
+    });
   });
 }
 
