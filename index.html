@@ -495,250 +495,354 @@
         </div>
 
         <!-- ── MOBILE: auto-sliding carousel ── -->
-        <div class="md:hidden relative">
-          <div id="problem-carousel-track" class="flex gap-4 overflow-x-auto snap-x snap-mandatory pb-4"
-            style="scrollbar-width: none; -ms-overflow-style: none; -webkit-overflow-scrolling: touch;">
-            <!-- Card 1: Sales -->
-            <div class="flex-shrink-0 snap-center w-[85vw] min-[400px]:w-[75vw]" style="min-width:0;">
-              <div class="team-card relative w-full cursor-default"
-                style="height: clamp(280px, 115.7vw, 480px); perspective: 1000px;">
-                <div class="team-card-inner relative w-full h-full"
-                  style="transform-style:preserve-3d; transition:transform 0.6s cubic-bezier(0.23,1,0.32,1);">
-                  <!-- Front -->
-                  <div class="team-card-face team-card-front absolute inset-0 bg-[#F8F9FB] overflow-hidden rounded-xl"
-                    style="backface-visibility:hidden; -webkit-backface-visibility:hidden;">
-                    <div class="absolute inset-x-0 top-0 h-[45%] pointer-events-none opacity-50"
-                      style="background-image:repeating-linear-gradient(to right,#e5e7eb 0,#e5e7eb 1px,transparent 1px,transparent 20px);mask-image:linear-gradient(to bottom,rgba(0,0,0,0.7) 0%,transparent 100%);-webkit-mask-image:linear-gradient(to bottom,rgba(0,0,0,0.7) 0%,transparent 100%);">
-                    </div>
-                    <div class="absolute bottom-0 right-0 w-6 h-[55%] bg-gradient-to-b from-[#11119A] to-[#4A86E8]">
-                    </div>
-                    <div class="relative p-6 h-full w-full flex flex-col z-10">
-                      <h3 class="font-normal text-[#111827] mb-3 leading-tight"
-                        style="font-size: clamp(18px, 5.97vw, 24px);">Sales<br />Teams</h3>
-                      <p class="anseru-section-description pr-4" style="font-size: clamp(12px, 3.48vw, 14px);">
-                        Responding to RFPs and RFIs requires collecting information from different teams &amp;
-                        documents, which slows down deal cycles.
-                      </p>
-                      <div class="flex justify-center items-center mt-auto mb-4 pt-4">
-                        <div class="w-[65%] opacity-90 flex items-center justify-center">
-                          <svg viewBox="0 22 220 246" fill="none" xmlns="http://www.w3.org/2000/svg"
-                            class="w-full h-auto block">
-                            <path d="M23 36H197" stroke="black" stroke-width="2" />
-                            <path d="M52 94H168" stroke="black" stroke-width="2" />
-                            <path d="M81 152H139" stroke="black" stroke-width="2" />
-                            <path
-                              d="M110 227.4C119.609 227.4 127.4 219.609 127.4 210C127.4 200.39 119.609 192.6 110 192.6C100.39 192.6 92.5996 200.39 92.5996 210C92.5996 219.609 100.39 227.4 110 227.4Z"
-                              stroke="black" stroke-width="2" />
-                            <path d="M110 36V192.6" stroke="#888888" stroke-dasharray="4 4" />
-                          </svg>
-                        </div>
-                      </div>
-                      <p class="text-center text-[11px] text-gray-400 mt-1">Tap to flip</p>
-                    </div>
-                  </div>
-                  <!-- Back -->
-                  <div class="team-card-face team-card-back absolute inset-0 bg-[#F8F9FB] overflow-hidden rounded-xl"
-                    style="backface-visibility:hidden; -webkit-backface-visibility:hidden; transform:rotateY(180deg);">
-                    <div class="absolute inset-x-0 top-0 h-[45%] pointer-events-none opacity-100"
-                      style="background-image:repeating-linear-gradient(to right,#e5e7eb 0,#e5e7eb 1px,transparent 1px,transparent 20px);mask-image:linear-gradient(to bottom,rgba(0,0,0,0.7) 0%,transparent 100%);-webkit-mask-image:linear-gradient(to bottom,rgba(0,0,0,0.7) 0%,transparent 100%);">
-                    </div>
-                    <div class="absolute bottom-0 right-0 w-6 h-[55%] bg-gradient-to-b from-[#11119A] to-[#4A86E8]">
-                    </div>
-                    <div class="relative p-6 h-full w-full flex flex-col z-10 pt-8">
-                      <h3 class="font-normal text-[#111827] mb-6 leading-tight"
-                        style="font-size: clamp(18px, 5.97vw, 24px);">Sales<br />Teams</h3>
-                      <div class="flex flex-col gap-5 pr-4">
-                        <div class="flex items-start gap-3">
-                          <img src="./src/assets/Group.png" loading="lazy" alt=""
-                            class="w-5 h-5 object-contain mt-0.5 shrink-0" />
-                          <p class="text-black/60 leading-normal" style="font-size: clamp(12px, 3.48vw, 14px);">
-                            Auto-assemble deal context from CRM data, call transcripts, and competitive insights</p>
-                        </div>
-                        <div class="flex items-start gap-3">
-                          <img src="./src/assets/Group.png" loading="lazy" alt=""
-                            class="w-5 h-5 object-contain mt-0.5 shrink-0" />
-                          <p class="text-black/60 leading-normal" style="font-size: clamp(12px, 3.48vw, 14px);">Detect
-                            requirements and map proof points to your strongest capabilities</p>
-                        </div>
-                        <div class="flex items-start gap-3">
-                          <img src="./src/assets/Group.png" loading="lazy" alt=""
-                            class="w-5 h-5 object-contain mt-0.5 shrink-0" />
-                          <p class="text-black/60 leading-normal" style="font-size: clamp(12px, 3.48vw, 14px);">Reduce
-                            proposal assembly time by <span class="text-[#2C48DB] font-semibold">60%+</span> with
-                            AI-generated first drafts</p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+   <!-- ── MOBILE: auto-sliding carousel ── -->
+<div class="md:hidden relative">
+  <style>
+    /*
+      Fluid card responsive system:
+      - Font, padding, gap all scale with vw
+      - Card height auto-sizes to content via min-height + padding
+      - No fixed heights — content always visible
+    */
 
-            <!-- Card 2: Security -->
-            <div class="flex-shrink-0 snap-center w-[85vw] min-[400px]:w-[75vw]" style="min-width:0;">
-              <div class="team-card relative w-full cursor-default"
-                style="height: clamp(280px, 115.7vw, 480px); perspective: 1000px;">
-                <div class="team-card-inner relative w-full h-full"
-                  style="transform-style:preserve-3d; transition:transform 0.6s cubic-bezier(0.23,1,0.32,1);">
-                  <!-- Front -->
-                  <div class="team-card-face team-card-front absolute inset-0 bg-[#F8F9FB] overflow-hidden rounded-xl"
-                    style="backface-visibility:hidden; -webkit-backface-visibility:hidden;">
-                    <div class="absolute inset-x-0 top-0 h-[45%] pointer-events-none opacity-50"
-                      style="background-image:repeating-linear-gradient(to right,#e5e7eb 0,#e5e7eb 1px,transparent 1px,transparent 20px);mask-image:linear-gradient(to bottom,rgba(0,0,0,0.7) 0%,transparent 100%);-webkit-mask-image:linear-gradient(to bottom,rgba(0,0,0,0.7) 0%,transparent 100%);">
-                    </div>
-                    <div class="absolute bottom-0 right-0 w-6 h-[55%] bg-gradient-to-b from-[#D53B44] to-[#3B82F6]">
-                    </div>
-                    <div class="relative p-6 h-full w-full flex flex-col z-10">
-                      <h3 class="font-normal text-[#111827] mb-3 leading-tight"
-                        style="font-size: clamp(18px, 5.97vw, 24px);">Security<br />Teams</h3>
-                      <p class="anseru-section-description pr-4" style="font-size: clamp(12px, 3.48vw, 14px);">
-                        Vendor security questionnaires require detailed answers about policies, compliance, and
-                        infrastructure.
-                      </p>
-                      <div class="flex justify-center items-center mt-auto mb-4 pt-4">
-                        <div class="w-[65%] opacity-90 flex items-center justify-center">
-                          <svg viewBox="0 20 285 285" fill="none" xmlns="http://www.w3.org/2000/svg"
-                            class="w-full h-auto block scale-125">
-                            <path
-                              d="M142.5 178.125C162.175 178.125 178.125 162.175 178.125 142.5C178.125 122.825 162.175 106.875 142.5 106.875C122.825 106.875 106.875 122.825 106.875 142.5C106.875 162.175 122.825 178.125 142.5 178.125Z"
-                              stroke="black" stroke-width="2.85" />
-                            <path
-                              d="M142.5 206.625C177.915 206.625 206.625 177.915 206.625 142.5C206.625 107.085 177.915 78.375 142.5 78.375C107.085 78.375 78.375 107.085 78.375 142.5C78.375 177.915 107.085 206.625 142.5 206.625Z"
-                              stroke="#444444" stroke-width="2.85" />
-                            <path
-                              d="M142.5 235.125C193.655 235.125 235.125 193.655 235.125 142.5C235.125 91.3446 193.655 49.875 142.5 49.875C91.3446 49.875 49.875 91.3446 49.875 142.5C49.875 193.655 91.3446 235.125 142.5 235.125Z"
-                              stroke="#666666" stroke-width="2.85" />
-                            <path
-                              d="M142.5 263.625C209.395 263.625 263.625 209.395 263.625 142.5C263.625 75.6045 209.395 21.375 142.5 21.375C75.6045 21.375 21.375 75.6045 21.375 142.5C21.375 209.395 75.6045 263.625 142.5 263.625Z"
-                              stroke="#888888" stroke-width="1.425" stroke-dasharray="5.7 5.7" />
-                            <path d="M142.5 21.375V263.625" stroke="#999999" stroke-width="1.425"
-                              stroke-dasharray="5.7 5.7" />
-                          </svg>
-                        </div>
-                      </div>
-                      <p class="text-center text-[11px] text-gray-400 mt-1">Tap to flip</p>
-                    </div>
-                  </div>
-                  <!-- Back -->
-                  <div class="team-card-face team-card-back absolute inset-0 bg-[#F8F9FB] overflow-hidden rounded-xl"
-                    style="backface-visibility:hidden; -webkit-backface-visibility:hidden; transform:rotateY(180deg);">
-                    <div class="absolute inset-x-0 top-0 h-[45%] pointer-events-none opacity-100"
-                      style="background-image:repeating-linear-gradient(to right,#e5e7eb 0,#e5e7eb 1px,transparent 1px,transparent 20px);mask-image:linear-gradient(to bottom,rgba(0,0,0,0.7) 0%,transparent 100%);-webkit-mask-image:linear-gradient(to bottom,rgba(0,0,0,0.7) 0%,transparent 100%);">
-                    </div>
-                    <div class="absolute bottom-0 right-0 w-6 h-[55%] bg-gradient-to-b from-[#D53B44] to-[#3B82F6]">
-                    </div>
-                    <div class="relative p-6 h-full w-full flex flex-col z-10 pt-8">
-                      <h3 class="font-normal text-[#111827] mb-6 leading-tight"
-                        style="font-size: clamp(18px, 5.97vw, 24px);">Security<br />Teams</h3>
-                      <div class="flex flex-col gap-5 pr-4">
-                        <div class="flex items-start gap-3">
-                          <img src="./src/assets/Group (1).png" loading="lazy" alt=""
-                            class="w-5 h-5 object-contain mt-0.5 shrink-0" />
-                          <p class="text-black/60 leading-normal" style="font-size: clamp(12px, 3.48vw, 14px);">
-                            Auto-draft security responses from your verified security documentation</p>
-                        </div>
-                        <div class="flex items-start gap-3">
-                          <img src="./src/assets/Group (1).png" loading="lazy" alt=""
-                            class="w-5 h-5 object-contain mt-0.5 shrink-0" />
-                          <p class="text-black/60 leading-normal" style="font-size: clamp(12px, 3.48vw, 14px);">Ground
-                            answers in verified security evidence</p>
-                        </div>
-                        <div class="flex items-start gap-3">
-                          <img src="./src/assets/Group (1).png" loading="lazy" alt=""
-                            class="w-5 h-5 object-contain mt-0.5 shrink-0" />
-                          <p class="text-black/60 leading-normal" style="font-size: clamp(12px, 3.48vw, 14px);">Cut
-                            security review time from hours to minutes</p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+    .prob-card-wrap {
+      flex-shrink: 0;
+      snap-align: center;
+      min-width: 0;
+      width: 85vw;
+    }
 
-            <!-- Card 3: Compliance -->
-            <div class="flex-shrink-0 snap-center w-[85vw] min-[400px]:w-[75vw]" style="min-width:0;">
-              <div class="team-card relative w-full cursor-default"
-                style="height: clamp(280px, 115.7vw, 480px); perspective: 1000px;">
-                <div class="team-card-inner relative w-full h-full"
-                  style="transform-style:preserve-3d; transition:transform 0.6s cubic-bezier(0.23,1,0.32,1);">
-                  <!-- Front -->
-                  <div class="team-card-face team-card-front absolute inset-0 bg-[#F8F9FB] overflow-hidden rounded-xl"
-                    style="backface-visibility:hidden; -webkit-backface-visibility:hidden;">
-                    <div class="absolute inset-x-0 top-0 h-[45%] pointer-events-none opacity-50"
-                      style="background-image:repeating-linear-gradient(to right,#e5e7eb 0,#e5e7eb 1px,transparent 1px,transparent 20px);mask-image:linear-gradient(to bottom,rgba(0,0,0,0.7) 0%,transparent 100%);-webkit-mask-image:linear-gradient(to bottom,rgba(0,0,0,0.7) 0%,transparent 100%);">
-                    </div>
-                    <div class="absolute bottom-0 right-0 w-6 h-[55%] bg-gradient-to-b from-[#658CA6] to-[#C9C21A]">
-                    </div>
-                    <div class="relative p-6 h-full w-full flex flex-col z-10">
-                      <h3 class="font-normal text-[#111827] mb-3 leading-tight"
-                        style="font-size: clamp(18px, 5.97vw, 24px);">Compliance<br />Teams</h3>
-                      <p class="anseru-section-description pr-4" style="font-size: clamp(12px, 3.48vw, 14px);">
-                        Compliance teams spend hours preparing responses for audits, vendor reviews, and regulatory
-                        forms.
-                      </p>
-                      <div class="flex justify-center items-center mt-auto mb-4 pt-4">
-                        <div class="w-[65%] opacity-90 flex items-center justify-center">
-                          <svg viewBox="0 22 333 333" fill="none" xmlns="http://www.w3.org/2000/svg"
-                            class="w-full h-auto block" style="scale:1.55">
-                            <path d="M266.4 66.5996H66.5996V266.4H266.4V66.5996Z" stroke="black" stroke-width="2" />
-                            <path d="M133.199 66.5996V266.4" stroke="#666666" stroke-width="1.665" />
-                            <path d="M199.801 66.5996V266.4" stroke="#666666" stroke-width="1.665" />
-                            <path d="M66.5996 133.2H266.4" stroke="#666666" stroke-width="1.665" />
-                            <path d="M66.5996 199.8H266.4" stroke="#666666" stroke-width="1.665" />
-                            <path d="M66.5996 66.5996L266.4 266.4" stroke="#999999" stroke-width="1.665"
-                              stroke-dasharray="6.66 6.66" />
-                          </svg>
-                        </div>
-                      </div>
-                      <p class="text-center text-[11px] text-gray-400 mt-1">Tap to flip</p>
-                    </div>
-                  </div>
-                  <!-- Back -->
-                  <div class="team-card-face team-card-back absolute inset-0 bg-[#F8F9FB] overflow-hidden rounded-xl"
-                    style="backface-visibility:hidden; -webkit-backface-visibility:hidden; transform:rotateY(180deg);">
-                    <div class="absolute inset-x-0 top-0 h-[45%] pointer-events-none opacity-100"
-                      style="background-image:repeating-linear-gradient(to right,#e5e7eb 0,#e5e7eb 1px,transparent 1px,transparent 20px);mask-image:linear-gradient(to bottom,rgba(0,0,0,0.7) 0%,transparent 100%);-webkit-mask-image:linear-gradient(to bottom,rgba(0,0,0,0.7) 0%,transparent 100%);">
-                    </div>
-                    <div class="absolute bottom-0 right-0 w-6 h-[55%] bg-gradient-to-b from-[#658CA6] to-[#C9C21A]">
-                    </div>
-                    <div class="relative p-6 h-full w-full flex flex-col z-10 pt-8">
-                      <h3 class="font-normal text-[#111827] mb-6 leading-tight"
-                        style="font-size: clamp(18px, 5.97vw, 24px);">Compliance<br />Teams</h3>
-                      <div class="flex flex-col gap-5 pr-4">
-                        <div class="flex items-start gap-3">
-                          <img src="./src/assets/Group (2).png" loading="lazy" alt=""
-                            class="w-5 h-5 object-contain mt-[2px] shrink-0" />
-                          <p class="text-black/60 leading-[1.5]" style="font-size: clamp(12px, 3.48vw, 14px);">Generate
-                            compliance responses with source-backed citations</p>
-                        </div>
-                        <div class="flex items-start gap-3">
-                          <img src="./src/assets/Group (2).png" loading="lazy" alt=""
-                            class="w-5 h-5 object-contain mt-[2px] shrink-0" />
-                          <p class="text-black/60 leading-[1.5]" style="font-size: clamp(12px, 3.48vw, 14px);">Enforce
-                            mandatory human review for regulatory answers</p>
-                        </div>
-                        <div class="flex items-start gap-3">
-                          <img src="./src/assets/Group (2).png" loading="lazy" alt=""
-                            class="w-5 h-5 object-contain mt-[2px] shrink-0" />
-                          <p class="text-black/60 leading-[1.5]" style="font-size: clamp(12px, 3.48vw, 14px);">Maintain
-                            a complete audit trail for every response</p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+    @media (min-width: 400px) {
+      .prob-card-wrap { width: 75vw; }
+    }
+
+    .prob-card {
+      position: relative;
+      width: 100%;
+      /* min-height grows taller on small screens, shorter on wider ones */
+      min-height: clamp(360px, 128vw, 500px);
+      perspective: 1000px;
+    }
+
+    .prob-card-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      transform-style: preserve-3d;
+      transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+    }
+
+    .prob-face {
+      position: absolute;
+      inset: 0;
+      background: #F8F9FB;
+      overflow: hidden;
+      border-radius: 12px;
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
+    }
+
+    .prob-face-back {
+      transform: rotateY(180deg);
+    }
+
+    /* Grid overlay */
+    .prob-grid-overlay {
+      position: absolute;
+      inset-inline: 0;
+      top: 0;
+      height: 45%;
+      pointer-events: none;
+      background-image: repeating-linear-gradient(
+        to right, #e5e7eb 0, #e5e7eb 1px, transparent 1px, transparent 20px
+      );
+      mask-image: linear-gradient(to bottom, rgba(0,0,0,0.7) 0%, transparent 100%);
+      -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,0.7) 0%, transparent 100%);
+    }
+
+    .prob-face-back .prob-grid-overlay { opacity: 1; }
+    .prob-face-front .prob-grid-overlay { opacity: 0.5; }
+
+    /* Fluid padding: tighter on small screens */
+    .prob-body {
+      position: relative;
+      padding: clamp(16px, 5vw, 24px);
+      height: 100%;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      z-index: 10;
+    }
+
+    .prob-body-back {
+      padding-top: clamp(20px, 6vw, 32px);
+    }
+
+    /* Fluid heading */
+    .prob-heading {
+      font-weight: 400;
+      color: #111827;
+      line-height: 1.25;
+      margin-bottom: clamp(8px, 2.5vw, 12px);
+      font-size: clamp(16px, 5.2vw, 22px);
+    }
+
+    /* Fluid description (front) */
+    .prob-desc {
+      color: #6B7280;
+      line-height: 1.5;
+      font-size: clamp(11px, 3vw, 13px);
+      padding-right: clamp(8px, 3vw, 16px);
+    }
+
+    /* SVG illustration area */
+    .prob-svg-wrap {
+      margin-top: auto;
+      margin-bottom: clamp(8px, 3vw, 16px);
+      padding-top: clamp(8px, 3vw, 16px);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .prob-svg-inner {
+      width: clamp(100px, 55%, 160px);
+      opacity: 0.9;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .prob-tap-hint {
+      text-align: center;
+      font-size: 11px;
+      color: #9CA3AF;
+      margin-top: 4px;
+    }
+
+    /* Back face heading spacing */
+    .prob-back-heading {
+      font-weight: 400;
+      color: #111827;
+      line-height: 1.25;
+      font-size: clamp(16px, 5.2vw, 22px);
+      margin-bottom: clamp(12px, 4vw, 20px);
+    }
+
+    /* Bullet list */
+    .prob-bullets {
+      display: flex;
+      flex-direction: column;
+      gap: clamp(10px, 3.5vw, 18px);
+      padding-right: clamp(8px, 3vw, 16px);
+    }
+
+    .prob-bullet-row {
+      display: flex;
+      align-items: flex-start;
+      gap: clamp(8px, 2.5vw, 12px);
+    }
+
+    .prob-bullet-icon {
+      width: clamp(14px, 4vw, 18px);
+      height: clamp(14px, 4vw, 18px);
+      object-fit: contain;
+      margin-top: 2px;
+      flex-shrink: 0;
+    }
+
+    .prob-bullet-text {
+      color: rgba(0,0,0,0.6);
+      line-height: 1.45;
+      font-size: clamp(11px, 3vw, 13px);
+    }
+
+    .prob-accent { color: #2C48DB; font-weight: 600; }
+
+    /* Accent bar (right edge) */
+    .prob-bar {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      width: 6px;
+      height: 55%;
+    }
+  </style>
+
+  <div id="problem-carousel-track"
+    class="flex gap-4 overflow-x-auto snap-x snap-mandatory pb-4"
+    style="scrollbar-width: none; -ms-overflow-style: none; -webkit-overflow-scrolling: touch;">
+
+    <!-- ── Card 1: Sales ── -->
+    <div class="prob-card-wrap snap-center">
+      <div class="prob-card team-card">
+        <div class="prob-card-inner team-card-inner">
+          <!-- Front -->
+          <div class="prob-face prob-face-front team-card-face team-card-front">
+            <div class="prob-grid-overlay"></div>
+            <div class="prob-bar" style="background: linear-gradient(to bottom, #11119A, #4A86E8);"></div>
+            <div class="prob-body">
+              <h3 class="prob-heading">Sales<br />Teams</h3>
+              <p class="prob-desc">
+                Responding to RFPs and RFIs requires collecting information from different teams &amp;
+                documents, which slows down deal cycles.
+              </p>
+              <div class="prob-svg-wrap">
+                <div class="prob-svg-inner">
+                  <svg viewBox="0 22 220 246" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-auto block">
+                    <path d="M23 36H197" stroke="black" stroke-width="2"/>
+                    <path d="M52 94H168" stroke="black" stroke-width="2"/>
+                    <path d="M81 152H139" stroke="black" stroke-width="2"/>
+                    <path d="M110 227.4C119.609 227.4 127.4 219.609 127.4 210C127.4 200.39 119.609 192.6 110 192.6C100.39 192.6 92.5996 200.39 92.5996 210C92.5996 219.609 100.39 227.4 110 227.4Z" stroke="black" stroke-width="2"/>
+                    <path d="M110 36V192.6" stroke="#888888" stroke-dasharray="4 4"/>
+                  </svg>
                 </div>
               </div>
+              <p class="prob-tap-hint">Tap to flip</p>
             </div>
           </div>
-
-          <!-- Dots -->
-          <div id="problem-dots" class="flex justify-center gap-2 mt-4 pb-8">
-            <button data-idx="0" class="problem-dot  transition-all duration-300 w-5 h-2 bg-gray-700"></button>
-            <button data-idx="1" class="problem-dot  transition-all duration-300 w-2 h-2 bg-gray-300"></button>
-            <button data-idx="2" class="problem-dot  transition-all duration-300 w-2 h-2 bg-gray-300"></button>
+          <!-- Back -->
+          <div class="prob-face prob-face-back team-card-face team-card-back">
+            <div class="prob-grid-overlay"></div>
+            <div class="prob-bar" style="background: linear-gradient(to bottom, #11119A, #4A86E8);"></div>
+            <div class="prob-body prob-body-back">
+              <h3 class="prob-back-heading">Sales<br />Teams</h3>
+              <div class="prob-bullets">
+                <div class="prob-bullet-row">
+                  <img src="./src/assets/Group.png" loading="lazy" alt="" class="prob-bullet-icon"/>
+                  <p class="prob-bullet-text">Auto-assemble deal context from CRM data, call transcripts, and competitive insights</p>
+                </div>
+                <div class="prob-bullet-row">
+                  <img src="./src/assets/Group.png" loading="lazy" alt="" class="prob-bullet-icon"/>
+                  <p class="prob-bullet-text">Detect requirements and map proof points to your strongest capabilities</p>
+                </div>
+                <div class="prob-bullet-row">
+                  <img src="./src/assets/Group.png" loading="lazy" alt="" class="prob-bullet-icon"/>
+                  <p class="prob-bullet-text">Reduce proposal assembly time by <span class="prob-accent">60%+</span> with AI-generated first drafts</p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
+      </div>
+    </div>
+
+    <!-- ── Card 2: Security ── -->
+    <div class="prob-card-wrap snap-center">
+      <div class="prob-card team-card">
+        <div class="prob-card-inner team-card-inner">
+          <!-- Front -->
+          <div class="prob-face prob-face-front team-card-face team-card-front">
+            <div class="prob-grid-overlay"></div>
+            <div class="prob-bar" style="background: linear-gradient(to bottom, #D53B44, #3B82F6);"></div>
+            <div class="prob-body">
+              <h3 class="prob-heading">Security<br />Teams</h3>
+              <p class="prob-desc">
+                Vendor security questionnaires require detailed answers about policies, compliance, and infrastructure.
+              </p>
+              <div class="prob-svg-wrap">
+                <div class="prob-svg-inner" style="width: clamp(90px, 50%, 140px);">
+                  <svg viewBox="0 20 285 285" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-auto block" style="transform: scale(1.15); transform-origin: center;">
+                    <path d="M142.5 178.125C162.175 178.125 178.125 162.175 178.125 142.5C178.125 122.825 162.175 106.875 142.5 106.875C122.825 106.875 106.875 122.825 106.875 142.5C106.875 162.175 122.825 178.125 142.5 178.125Z" stroke="black" stroke-width="2.85"/>
+                    <path d="M142.5 206.625C177.915 206.625 206.625 177.915 206.625 142.5C206.625 107.085 177.915 78.375 142.5 78.375C107.085 78.375 78.375 107.085 78.375 142.5C78.375 177.915 107.085 206.625 142.5 206.625Z" stroke="#444444" stroke-width="2.85"/>
+                    <path d="M142.5 235.125C193.655 235.125 235.125 193.655 235.125 142.5C235.125 91.3446 193.655 49.875 142.5 49.875C91.3446 49.875 49.875 91.3446 49.875 142.5C49.875 193.655 91.3446 235.125 142.5 235.125Z" stroke="#666666" stroke-width="2.85"/>
+                    <path d="M142.5 263.625C209.395 263.625 263.625 209.395 263.625 142.5C263.625 75.6045 209.395 21.375 142.5 21.375C75.6045 21.375 21.375 75.6045 21.375 142.5C21.375 209.395 75.6045 263.625 142.5 263.625Z" stroke="#888888" stroke-width="1.425" stroke-dasharray="5.7 5.7"/>
+                    <path d="M142.5 21.375V263.625" stroke="#999999" stroke-width="1.425" stroke-dasharray="5.7 5.7"/>
+                  </svg>
+                </div>
+              </div>
+              <p class="prob-tap-hint">Tap to flip</p>
+            </div>
+          </div>
+          <!-- Back -->
+          <div class="prob-face prob-face-back team-card-face team-card-back">
+            <div class="prob-grid-overlay"></div>
+            <div class="prob-bar" style="background: linear-gradient(to bottom, #D53B44, #3B82F6);"></div>
+            <div class="prob-body prob-body-back">
+              <h3 class="prob-back-heading">Security<br />Teams</h3>
+              <div class="prob-bullets">
+                <div class="prob-bullet-row">
+                  <img src="./src/assets/Group (1).png" loading="lazy" alt="" class="prob-bullet-icon"/>
+                  <p class="prob-bullet-text">Auto-draft security responses from your verified security documentation</p>
+                </div>
+                <div class="prob-bullet-row">
+                  <img src="./src/assets/Group (1).png" loading="lazy" alt="" class="prob-bullet-icon"/>
+                  <p class="prob-bullet-text">Ground answers in verified security evidence</p>
+                </div>
+                <div class="prob-bullet-row">
+                  <img src="./src/assets/Group (1).png" loading="lazy" alt="" class="prob-bullet-icon"/>
+                  <p class="prob-bullet-text">Cut security review time from hours to minutes</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── Card 3: Compliance ── -->
+    <div class="prob-card-wrap snap-center">
+      <div class="prob-card team-card">
+        <div class="prob-card-inner team-card-inner">
+          <!-- Front -->
+          <div class="prob-face prob-face-front team-card-face team-card-front">
+            <div class="prob-grid-overlay"></div>
+            <div class="prob-bar" style="background: linear-gradient(to bottom, #658CA6, #C9C21A);"></div>
+            <div class="prob-body">
+              <h3 class="prob-heading">Compliance<br />Teams</h3>
+              <p class="prob-desc">
+                Compliance teams spend hours preparing responses for audits, vendor reviews, and regulatory forms.
+              </p>
+              <div class="prob-svg-wrap">
+                <div class="prob-svg-inner">
+                  <svg viewBox="40 40 253 253" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-auto block">
+                    <path d="M266.4 66.5996H66.5996V266.4H266.4V66.5996Z" stroke="black" stroke-width="2"/>
+                    <path d="M133.199 66.5996V266.4" stroke="#666666" stroke-width="1.665"/>
+                    <path d="M199.801 66.5996V266.4" stroke="#666666" stroke-width="1.665"/>
+                    <path d="M66.5996 133.2H266.4" stroke="#666666" stroke-width="1.665"/>
+                    <path d="M66.5996 199.8H266.4" stroke="#666666" stroke-width="1.665"/>
+                    <path d="M66.5996 66.5996L266.4 266.4" stroke="#999999" stroke-width="1.665" stroke-dasharray="6.66 6.66"/>
+                  </svg>
+                </div>
+              </div>
+              <p class="prob-tap-hint">Tap to flip</p>
+            </div>
+          </div>
+          <!-- Back -->
+          <div class="prob-face prob-face-back team-card-face team-card-back">
+            <div class="prob-grid-overlay"></div>
+            <div class="prob-bar" style="background: linear-gradient(to bottom, #658CA6, #C9C21A);"></div>
+            <div class="prob-body prob-body-back">
+              <h3 class="prob-back-heading">Compliance<br />Teams</h3>
+              <div class="prob-bullets">
+                <div class="prob-bullet-row">
+                  <img src="./src/assets/Group (2).png" loading="lazy" alt="" class="prob-bullet-icon"/>
+                  <p class="prob-bullet-text">Generate compliance responses with source-backed citations</p>
+                </div>
+                <div class="prob-bullet-row">
+                  <img src="./src/assets/Group (2).png" loading="lazy" alt="" class="prob-bullet-icon"/>
+                  <p class="prob-bullet-text">Enforce mandatory human review for regulatory answers</p>
+                </div>
+                <div class="prob-bullet-row">
+                  <img src="./src/assets/Group (2).png" loading="lazy" alt="" class="prob-bullet-icon"/>
+                  <p class="prob-bullet-text">Maintain a complete audit trail for every response</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Dots -->
+  <div id="problem-dots" class="flex justify-center gap-2 mt-4 pb-8">
+    <button data-idx="0" class="problem-dot transition-all duration-300 w-5 h-2 bg-gray-700 rounded-full"></button>
+    <button data-idx="1" class="problem-dot transition-all duration-300 w-2 h-2 bg-gray-300 rounded-full"></button>
+    <button data-idx="2" class="problem-dot transition-all duration-300 w-2 h-2 bg-gray-300 rounded-full"></button>
+  </div>
+</div>
 
         <!-- ── DESKTOP: original 3-col grid with flip ── -->
         <div class="hidden md:grid grid-cols-3 gap-6 md:gap-8">
@@ -936,13 +1040,6 @@
   </section>
 
     <section data-section id="how-it-works" class="scroll-mt-5">
-
-      <!-- ═══════════════════════════════════════════
-        MOBILE CAROUSEL  (hidden on lg+)
-    ════════════════════════════════════════════ -->
-   <!-- ═══════════════════════════════════════════
-   MOBILE CAROUSEL  (hidden on lg+)
-════════════════════════════════════════════ -->
 <!-- ═══════════════════════════════════════════
    MOBILE CAROUSEL  (hidden on lg+)
 ════════════════════════════════════════════ -->
@@ -954,7 +1051,7 @@
     <div style="padding: 0 clamp(14px,4vw,20px); margin-bottom: clamp(14px,4vw,20px);" class="shrink-0">
       <p style="font-size: clamp(11px,3vw,14px); color:#9ca3af; margin-bottom:4px; font-weight:400;">How it Works</p>
       <h2
-        style="font-size: clamp(22px,8.5vw,36px); line-height:1.1; font-weight:400; letter-spacing:-0.02em; color:#000; margin:0;">
+       style="font-size:clamp(13px,5.97vw,36px); line-height:1.1; font-weight:400; letter-spacing:-0.02em; color:#000; margin:0;">
         How Anseru Turns Knowledge Into<br />Winning Deals
       </h2>
     </div>
@@ -1021,19 +1118,20 @@
             height: clamp(200px,55vw,280px);
             border-radius:12px; overflow:hidden;
             position:relative; margin-bottom:clamp(12px,3.5vw,20px);
+            display: flex; flex-direction: column;
           " class="card-gradient-a1">
             <img src="./src/assets/Group 1437253216.png" loading="lazy" alt=""
               style="position:absolute;top:0;right:0;width:40%;height:40%;object-fit:contain;pointer-events:none;z-index:1;" />
             <div class="noise-overlay"
               style="position:absolute;inset:0;pointer-events:none;mix-blend-mode:overlay;z-index:0;"></div>
             <!-- Text on top left -->
-            <div style="position:relative;z-index:3;padding:clamp(14px,4vw,20px);max-width:55%;">
+            <div style="position:relative;z-index:3;padding:clamp(14px,4vw,20px);width:100%;box-sizing:border-box;">
               <h4 style="font-size:clamp(13px,3.8vw,16px);font-weight:500;color:#fff;line-height:1.3;margin:0;">
                 Turn complex RFPs into clear, winning responses
               </h4>
             </div>
             <!-- Screenshot bottom-right -->
-            <div style="position:absolute;z-index:2;bottom:0;right:0;width:72%;max-height:78%;overflow:hidden;">
+            <div style="position:relative;z-index:2;margin-top:auto;align-self:flex-end;width:78%;display:flex;justify-content:flex-end;">
               <img src="./src/assets/Intro-Page.webp" loading="lazy" alt="Connect"
                 style="width:100%;height:auto;display:block;border-radius:8px 0 0 0;" />
             </div>
@@ -1086,17 +1184,18 @@
             height:clamp(200px,55vw,280px);
             border-radius:12px; overflow:hidden;
             position:relative; margin-bottom:clamp(12px,3.5vw,20px);
+            display: flex; flex-direction: column;
           " class="card-gradient-a2">
             <img src="./src/assets/Group 1437253216.png" loading="lazy" alt=""
               style="position:absolute;top:0;right:0;width:40%;height:40%;object-fit:contain;pointer-events:none;z-index:1;" />
             <div class="noise-overlay"
               style="position:absolute;inset:0;pointer-events:none;mix-blend-mode:overlay;z-index:0;"></div>
-            <div style="position:relative;z-index:3;padding:clamp(14px,4vw,20px);max-width:55%;">
+            <div style="position:relative;z-index:3;padding:clamp(14px,4vw,20px);width:100%;box-sizing:border-box;">
               <h4 style="font-size:clamp(13px,3.8vw,16px);font-weight:500;color:#fff;line-height:1.3;margin:0;">
                 Extract precise constraints with pinpoint accuracy
               </h4>
             </div>
-            <div style="position:absolute;z-index:2;bottom:0;right:0;width:72%;max-height:78%;overflow:hidden;">
+            <div style="position:relative;z-index:2;margin-top:auto;align-self:flex-end;width:78%;display:flex;justify-content:flex-end;">
               <img src="./src/assets/Intro Page (3).png" loading="lazy" alt="Upload"
                 style="width:100%;height:auto;display:block;border-radius:8px 0 0 0;" />
             </div>
@@ -1146,17 +1245,18 @@
             height:clamp(200px,55vw,280px);
             border-radius:12px; overflow:hidden;
             position:relative; margin-bottom:clamp(12px,3.5vw,20px);
+            display: flex; flex-direction: column;
           " class="card-gradient-a3">
             <img src="./src/assets/Group 1437253216.png" loading="lazy" alt=""
               style="position:absolute;top:0;right:0;width:40%;height:40%;object-fit:contain;pointer-events:none;z-index:1;" />
             <div class="noise-overlay"
               style="position:absolute;inset:0;pointer-events:none;mix-blend-mode:overlay;z-index:0;"></div>
-            <div style="position:relative;z-index:3;padding:clamp(14px,4vw,20px);max-width:55%;">
+            <div style="position:relative;z-index:3;padding:clamp(14px,4vw,20px);width:100%;box-sizing:border-box;">
               <h4 style="font-size:clamp(13px,3.8vw,16px);font-weight:500;color:#fff;line-height:1.3;margin:0;">
                 Produce high-quality answers tied to real company data
               </h4>
             </div>
-            <div style="position:absolute;z-index:2;bottom:0;right:0;width:72%;max-height:78%;overflow:hidden;">
+            <div style="position:relative;z-index:2;margin-top:auto;align-self:flex-end;width:78%;display:flex;justify-content:flex-end;">
               <img src="./src/assets/Intro Page (8).png" loading="lazy" alt="Respond"
                 style="width:100%;height:auto;display:block;border-radius:8px 0 0 0;" />
             </div>
@@ -1206,17 +1306,18 @@
             height:clamp(200px,55vw,280px);
             border-radius:12px; overflow:hidden;
             position:relative; margin-bottom:clamp(12px,3.5vw,20px);
+            display: flex; flex-direction: column;
           " class="card-gradient-a4">
             <img src="./src/assets/Group 1437253216.png" loading="lazy" alt=""
               style="position:absolute;top:0;right:0;width:40%;height:40%;object-fit:contain;pointer-events:none;z-index:1;" />
             <div class="noise-overlay"
               style="position:absolute;inset:0;pointer-events:none;mix-blend-mode:overlay;z-index:0;"></div>
-            <div style="position:relative;z-index:3;padding:clamp(14px,4vw,20px);max-width:55%;">
+            <div style="position:relative;z-index:3;padding:clamp(14px,4vw,20px);width:100%;box-sizing:border-box;">
               <h4 style="font-size:clamp(13px,3.8vw,16px);font-weight:500;color:#fff;line-height:1.3;margin:0;">
                 Collaborate securely with robust human-in-the-loop workflows
               </h4>
             </div>
-            <div style="position:absolute;z-index:2;bottom:0;right:0;width:72%;max-height:78%;overflow:hidden;">
+            <div style="position:relative;z-index:2;margin-top:auto;align-self:flex-end;width:78%;display:flex;justify-content:flex-end;">
               <img src="./src/assets/Intro Page (1).png" loading="lazy" alt="Approve"
                 style="width:100%;height:auto;display:block;border-radius:8px 0 0 0;" />
             </div>
@@ -1583,399 +1684,213 @@
     </section>
 
   <section data-section id="product" class="scroll-mt-4">
-    <div class="lg:hidden w-full bg-white pb-7 px-2 min-[250px]:px-4 sm:px-6">
-      <div class="max-w-[1200px] mx-auto w-full">
-        <div class="flex flex-col gap-4 mb-6">
-          <div>
-            <p class="text-[14px] text-gray-500 mb-1">Proven Results</p>
-            <h2 class="text-[28px] leading-[1.1] font-normal tracking-tight text-black">Two Super Agents</h2>
-          </div>
-          <div
-            class="inline-flex w-fit items-center gap-0.5 min-[250px]:gap-1 bg-gray-100 p-0.5 min-[250px]:p-1 rounded-xl flex-wrap">
-            <button id="tab-archer" onclick="switchAgent('archer')"
-              class="flex items-center gap-1 min-[250px]:gap-2 px-2 min-[250px]:px-4 sm:px-5 py-1.5 min-[250px]:py-2.5 rounded-lg font-medium text-[11px] min-[250px]:text-sm transition-all cursor-pointer bg-black text-white whitespace-nowrap">
-              Meet Archer
-              <img src="./src/assets/Sud.png" loading="lazy" alt="archer" width="16" height="16"
-                class="brightness-0 invert w-3 min-[250px]:w-4 h-3 min-[250px]:h-4" />
-            </button>
-            <button id="tab-knox" onclick="switchAgent('knox')"
-              class="flex items-center gap-1 min-[250px]:gap-2 px-2 min-[250px]:px-4 sm:px-5 py-1.5 min-[250px]:py-2.5 rounded-lg font-medium text-[11px] min-[250px]:text-sm transition-all cursor-pointer bg-transparent text-black hover:bg-gray-200 whitespace-nowrap">
-              Meet Knox
-              <img src="./src/assets/kg.png" loading="lazy" alt="knox" width="16" height="16"
-                class="w-3 min-[250px]:w-4 h-3 min-[250px]:h-4" />
-            </button>
-          </div>
-        </div>
-        <div id="mobile-agent-archer">
-          <div class="border border-[#e5e7eb] rounded-xl overflow-hidden flex flex-col">
-            <div class="p-3.5 bg-white border-b border-[#e5e7eb]">
-              <div class="relative flex flex-col justify-between p-8 h-[360px] overflow-hidden" style="
-                    background: linear-gradient(
-                      180deg,
-                      #201cae 0%,
-                      #6aa4ee 100%
-                    );
-                  ">
-                <div class="noise-overlay absolute inset-0 opacity-100 pointer-events-none"></div>
-                <div class="relative">
-                  <img src="./src/assets/Frame (9).png" loading="lazy" alt="" class="w-28 h-auto opacity-90" />
-                </div>
-                <div class="relative mt-auto">
-                  <h3 class="text-[28px] sm:text-[32px] font-normal text-white mb-4 whitespace-pre-line leading-[1.1]">
-                    RFP Agent
-                  </h3>
-                  <div class="flex flex-wrap gap-2">
-                    <span
-                      class="text-white text-[13px] px-3 py-1 bg-white/20 rounded-[4px] border border-white/40 font-normal">Instant
-                      RFP breakdown</span>
-                    <span
-                      class="text-white text-[13px] px-3 py-1 bg-white/20 rounded-[4px] border border-white/40 font-normal">Terminology
-                      translation</span>
-                    <span
-                      class="text-white text-[13px] px-3 py-1 bg-white/20 rounded-[4px] border border-white/40 font-normal">Proposal-ready
-                      answers</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="p-2 min-[250px]:p-4 relative overflow-hidden">
-              <div class="absolute inset-0 pointer-events-none opacity-[0.1]" style="
-                    background-image:
-                      linear-gradient(to right, #000 1px, transparent 1px),
-                      linear-gradient(to bottom, #000 1px, transparent 1px);
-                    background-size: 150px 150px;
-                  "></div>
-              <div
-                class="grid grid-cols-1 min-[250px]:grid-cols-2 grid-rows-4 min-[250px]:grid-rows-2 bg-[#f4f4f5] relative z-10">
-                <div
-                  class="p-4 sm:p-6 min-h-[140px] sm:min-h-[160px] flex flex-col justify-between border-b min-[250px]:border-r border-[#e5e7eb]">
-                  <h4 class="text-[15px] sm:text-[16px] font-normal text-black leading-[1.2]">
-                    Instant RFP<br />intelligence
-                  </h4>
-                  <p class="text-[12px] sm:text-[13px] text-[#6b7280] leading-snug mt-3">
-                    Automatically extracts key requirements, timelines, stakeholders, and evaluation criteria.
-                  </p>
-                </div>
-                <div
-                  class="p-4 sm:p-6 min-h-[140px] sm:min-h-[160px] flex flex-col justify-between border-b border-[#e5e7eb]">
-                  <h4 class="text-[15px] sm:text-[16px] font-normal text-black leading-[1.2]">
-                    Terminology<br />mapping
-                  </h4>
-                  <p class="text-[12px] sm:text-[13px] text-[#6b7280] leading-snug mt-3">
-                    Translates feature requirements to your internal product language.
-                  </p>
-                </div>
-                <div
-                  class="p-4 sm:p-6 min-h-[140px] sm:min-h-[160px] flex flex-col justify-between border-b min-[250px]:border-b-0 min-[250px]:border-r border-[#e5e7eb]">
-                  <h4 class="text-[15px] sm:text-[16px] font-normal text-black leading-[1.2]">
-                    Bid / No-Bid<br />clarity
-                  </h4>
-                  <p class="text-[12px] sm:text-[13px] text-[#6b7280] leading-snug mt-3">
-                    Helps teams decide whether to pursue.
-                  </p>
-                </div>
-                <div class="p-4 sm:p-6 min-h-[140px] sm:min-h-[160px] flex flex-col justify-between border-[#e5e7eb]">
-                  <h4 class="text-[15px] sm:text-[16px] font-normal text-black leading-[1.2]">
-                    Structured proposal<br />generation
-                  </h4>
-                  <p class="text-[12px] sm:text-[13px] text-[#6b7280] leading-snug mt-3">
-                    Generates responses across technical, product, security, and legal sections with contextual
-                    intelligence.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div id="mobile-agent-knox" class="hidden">
-          <div class="border border-[#e5e7eb] rounded-xl overflow-hidden flex flex-col">
-            <div class="p-3.5 bg-white border-b border-[#e5e7eb]">
-              <div class="relative flex flex-col justify-between p-8 h-[360px] overflow-hidden" style="
-                    background: linear-gradient(
-                      45deg,
-                      #1d80f9 0%,
-                      #e74f62 100%
-                    );
-                  ">
-                <div class="noise-overlay absolute inset-0 opacity-100 pointer-events-none"></div>
-                <div class="relative">
-                  <img src="./src/assets/Frame (10).png" loading="lazy" alt="" class="w-28 h-auto opacity-90" />
-                </div>
-                <div class="relative mt-auto">
-                  <h3 class="text-[28px] sm:text-[32px] font-normal text-white mb-4 whitespace-pre-line leading-[1.1]">
-                    Security<br />Questionnaire Agent
-                  </h3>
-                  <div class="flex flex-wrap gap-2">
-                    <span
-                      class="text-white text-[13px] px-3 py-1 bg-white/20 rounded-[4px] border border-white/40 font-normal">Evidence-backed
-                      answers</span>
-                    <span
-                      class="text-white text-[13px] px-3 py-1 bg-white/20 rounded-[4px] border border-white/40 font-normal">No
-                      contradictions</span>
-                    <span
-                      class="text-white text-[13px] px-3 py-1 bg-white/20 rounded-[4px] border border-white/40 font-normal">Compliance-ready</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="p-2 min-[250px]:p-4 relative overflow-hidden">
-              <div class="absolute inset-0 pointer-events-none opacity-[0.1]" style="
-                    background-image:
-                      linear-gradient(to right, #000 1px, transparent 1px),
-                      linear-gradient(to bottom, #000 1px, transparent 1px);
-                    background-size: 150px 150px;
-                  "></div>
-              <div
-                class="grid grid-cols-1 min-[250px]:grid-cols-2 grid-rows-4 min-[250px]:grid-rows-2 bg-[#f4f4f5] relative z-10">
-                <div
-                  class="p-4 sm:p-6 min-h-[140px] sm:min-h-[160px] flex flex-col justify-between border-b min-[250px]:border-r border-[#e5e7eb]">
-                  <h4 class="text-[15px] sm:text-[16px] font-normal text-black leading-[1.2]">
-                    95%+ response<br />accuracy
-                  </h4>
-                  <p class="text-[12px] sm:text-[13px] text-[#6b7280] leading-snug mt-3">
-                    Generated from verified security documentation.
-                  </p>
-                </div>
-                <div
-                  class="p-4 sm:p-6 min-h-[140px] sm:min-h-[160px] flex flex-col justify-between border-b border-[#e5e7eb]">
-                  <h4 class="text-[15px] sm:text-[16px] font-normal text-black leading-[1.2]">
-                    70-90% faster<br />reviews
-                  </h4>
-                  <p class="text-[12px] sm:text-[13px] text-[#6b7280] leading-snug mt-3">
-                    Eliminates repetitive questionnaires saving SME time.
-                  </p>
-                </div>
-                <div
-                  class="p-4 sm:p-6 min-h-[140px] sm:min-h-[160px] flex flex-col justify-between border-b min-[250px]:border-b-0 min-[250px]:border-r border-[#e5e7eb]">
-                  <h4 class="text-[15px] sm:text-[16px] font-normal text-black leading-[1.2]">
-                    Audit-ready<br />answers
-                  </h4>
-                  <p class="text-[12px] sm:text-[13px] text-[#6b7280] leading-snug mt-3">
-                    Aligned with current policies and controls.
-                  </p>
-                </div>
-                <div class="p-4 sm:p-6 min-h-[140px] sm:min-h-[160px] flex flex-col justify-between border-[#e5e7eb]">
-                  <h4 class="text-[15px] sm:text-[16px] font-normal text-black leading-[1.2]">
-                    Evidence-backed<br />responses
-                  </h4>
-                  <p class="text-[12px] sm:text-[13px] text-[#6b7280] leading-snug mt-3">
-                    Every answer is grounded in policies, certifications, and security evidence.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+  <div class="lg:hidden w-full bg-white pb-7 px-2 min-[250px]:px-4 sm:px-6">
+    <div class="max-w-[1200px] mx-auto w-full">
 
-    <div id="two-agents-desktop" class="hidden lg:block w-full bg-white relative" style="height: 200vh">
-      <div class="sticky top-0 h-screen flex flex-col pt-16 pb-7 overflow-hidden">
-        <div class="max-w-[1200px] mx-auto px-6 w-full mb-5">
-          <div class="flex flex-col md:flex-row justify-between items-start md:items-end gap-2">
-            <div class="space-y-1">
-              <p class="anseru-section-tag">Proven Results</p>
-              <h2 class="anseru-section-title">Two Super Agents</h2>
-            </div>
-            <div class="inline-flex w-fit items-center gap-1 bg-gray-100 p-1 rounded-xl">
-              <button id="desk-tab-archer" onclick="desktopGoToAgent(0)"
-                class="flex items-center gap-2 px-4 sm:px-5 py-2.5 rounded-lg font-medium text-sm md:text-[16px] transition-all cursor-pointer bg-black text-white">
-                Meet Archer
-                <img src="./src/assets/Sud.png" loading="lazy" alt="archer" width="16" height="16"
-                  class="brightness-0 invert" />
-              </button>
-              <button id="desk-tab-knox" onclick="desktopGoToAgent(1)"
-                class="flex items-center gap-2 px-4 sm:px-5 py-2.5 rounded-lg font-medium text-sm md:text-[16px] transition-all cursor-pointer bg-transparent text-black hover:bg-gray-200">
-                Meet Knox
-                <img src="./src/assets/kg.png" loading="lazy" alt="knox" width="16" height="16" />
-              </button>
-            </div>
-          </div>
+      <!-- Header -->
+      <div class="flex flex-col gap-4 mb-6">
+        <div>
+          <p style="font-size: clamp(9px, 2.74vw, 14px); color:#6b7280; margin-bottom:4px; font-weight:400;">Proven Results</p>
+          <h2 style="font-size: clamp(13px, 5.97vw, 36px); line-height:1.1; font-weight:400; letter-spacing:-0.02em; color:#000; margin:0;">Two Super Agents</h2>
         </div>
-        <div class="flex-1 w-full overflow-hidden">
-          <div class="max-w-[1200px] mx-auto px-6 w-full h-full">
-            <div class="border border-black/30 rounded-xl overflow-hidden h-full">
-              <div id="two-agents-strip" class="flex h-full" style="width: 200%; will-change: transform">
-                <!-- Archer panel -->
-                <div class="w-1/2 flex flex-col lg:flex-row flex-shrink-0 items-stretch">
-                  <div
-                    class="lg:w-[48%] p-3.5 bg-white border lg:border-b-0 lg:border-r border-[#e5e7eb] flex-shrink-0">
-                    <div class="relative flex flex-col justify-between p-10 h-full overflow-hidden" style="
-                          background: linear-gradient(
-                            180deg,
-                            #201cae 0%,
-                            #6aa4ee 100%
-                          );
-                        ">
-                      <div class="noise-overlay absolute inset-0 opacity-100 pointer-events-none"></div>
-                      <div class="relative">
-                        <img src="./src/assets/Frame (9).png" loading="lazy" alt="" class="w-36 h-auto opacity-90" />
-                      </div>
-                      <div class="relative mt-auto">
-                        <h3
-                          class="anseru-card-title text-white mb-4 whitespace-pre-line leading-[1.3] md:leading-tight">
-                          RFP Agent - Archer
-                        </h3>
-                        <div class="flex flex-wrap gap-2.5">
-                          <span
-                            class="text-white text-[13px] md:text-[14px] px-3.5 py-1.5 bg-white/20 rounded-[4px] border border-white/40 font-normal">Instant
-                            RFP breakdown</span>
-                          <span
-                            class="text-white text-[13px] md:text-[14px] px-3.5 py-1.5 bg-white/20 rounded-[4px] border border-white/40 font-normal">Terminology
-                            translation</span>
-                          <span
-                            class="text-white text-[13px] md:text-[14px] px-3.5 py-1.5 bg-white/20 rounded-[4px] border border-white/40 font-normal">Proposal-ready
-                            answers</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="p-4 relative overflow-hidden border border-l-black/60" style="flex: 1">
-                    <div class="absolute inset-0 pointer-events-none opacity-[0.1]" style="
-                          background-image:
-                            linear-gradient(
-                              to right,
-                              #000 1px,
-                              transparent 1px
-                            ),
-                            linear-gradient(
-                              to bottom,
-                              #000 1px,
-                              transparent 1px
-                            );
-                          background-size: 150px 150px;
-                        "></div>
-                    <div class="h-full grid grid-cols-2 grid-rows-2 bg-[#f4f4f5] relative z-10">
-                      <div class="p-8 md:p-5 flex flex-col justify-between border-b border-r border-[#e5e7eb]">
-                        <h4 class="anseru-card-title">
-                          Instant RFP&#10;intelligence
-                        </h4>
-                        <p class="anseru-section-tag">
-                          Automatically extracts key requirements, timelines,
-                          stakeholders, and evaluation criteria.
-                        </p>
-                      </div>
-                      <div class="p-8 md:p-5 flex flex-col justify-between border-b border-[#e5e7eb]">
-                        <h4 class="anseru-card-title">
-                          Terminology&#10;mapping
-                        </h4>
-                        <p class="anseru-section-tag">
-                          Translates feature requirements to your internal
-                          product language.
-                        </p>
-                      </div>
-                      <div class="p-8 md:p-5 flex flex-col justify-between border-r border-[#e5e7eb]">
-                        <h4 class="anseru-card-title">
-                          Bid / No–&#10;Bid clarity
-                        </h4>
-                        <p class="anseru-section-tag">
-                          Helps teams decide whether to pursue.
-                        </p>
-                      </div>
-                      <div class="p-8 md:p-5 flex flex-col justify-between border-[#e5e7eb]">
-                        <h4 class="anseru-card-title">
-                          Structured proposal&#10;generation
-                        </h4>
-                        <p class="anseru-section-tag">
-                          Generates responses across technical, product,
-                          security, and legal sections with contextual
-                          intelligence.
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="w-1/2 flex flex-col lg:flex-row flex-shrink-0 items-stretch">
-                  <div
-                    class="lg:w-[48%] p-3.5 bg-white border lg:border-b-0 lg:border-r border-[#e5e7eb] flex-shrink-0">
-                    <div class="relative flex flex-col justify-between p-10 h-full overflow-hidden" style="
-                          background: linear-gradient(
-                            45deg,
-                            #1d80f9 0%,
-                            #e74f62 100%
-                          );
-                        ">
-                      <div class="noise-overlay absolute inset-0 opacity-100 pointer-events-none"></div>
-                      <div class="relative">
-                        <img src="./src/assets/Frame (10).png" loading="lazy" alt="" class="w-36 h-auto opacity-90" />
-                      </div>
-                      <div class="relative mt-auto">
-                        <h3
-                          class="anseru-card-title text-white mb-4 whitespace-pre-line leading-[1.3] md:leading-tight">
-                          Security&#10;Questionnaire Agent - Knox
-                        </h3>
-                        <div class="flex flex-wrap gap-2.5">
-                          <span
-                            class="text-white text-[13px] md:text-[14px] px-3.5 py-1.5 bg-white/20 rounded-[4px] border border-white/40 font-normal">Evidence-backed
-                            answers</span>
-                          <span
-                            class="text-white text-[13px] md:text-[14px] px-3.5 py-1.5 bg-white/20 rounded-[4px] border border-white/40 font-normal">No
-                            contradictions</span>
-                          <span
-                            class="text-white text-[13px] md:text-[14px] px-3.5 py-1.5 bg-white/20 rounded-[4px] border border-white/40 font-normal">Compliance-ready</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="p-4 relative overflow-hidden border border-l-black/60" style="flex: 1">
-                    <div class="absolute inset-0 pointer-events-none opacity-[0.1]" style="
-                          background-image:
-                            linear-gradient(
-                              to right,
-                              #000 1px,
-                              transparent 1px
-                            ),
-                            linear-gradient(
-                              to bottom,
-                              #000 1px,
-                              transparent 1px
-                            );
-                          background-size: 150px 150px;
-                        "></div>
-                    <div class="h-full grid grid-cols-2 grid-rows-2 bg-[#f4f4f5] relative z-10">
-                      <div class="p-8 md:p-5 flex flex-col justify-between border-b border-r border-[#e5e7eb]">
-                        <h4 class="anseru-card-title">
-                          95%+ response&#10;accuracy
-                        </h4>
-                        <p class="anseru-section-tag">
-                          Generated from verified security documentation.
-                        </p>
-                      </div>
-                      <div class="p-8 md:p-5 flex flex-col justify-between border-b border-[#e5e7eb]">
-                        <h4 class="anseru-card-title">
-                          70–90% faster&#10;reviews
-                        </h4>
-                        <p class="anseru-section-tag">
-                          Eliminates repetitive questionnaires saving SME time
-                        </p>
-                      </div>
-                      <div class="p-8 md:p-5 flex flex-col justify-between border-r border-[#e5e7eb]">
-                        <h4 class="anseru-card-title">
-                          Audit–ready&#10;answers
-                        </h4>
-                        <p class="anseru-section-tag">
-                          Aligned with current policies and controls.
-                        </p>
-                      </div>
-                      <div class="p-8 md:p-5 flex flex-col justify-between border-[#e5e7eb]">
-                        <h4 class="anseru-card-title">
-                          Evidence–backed&#10;responses
-                        </h4>
-                        <p class="anseru-section-tag">
-                          Every answer is grounded in policies,
-                          certifications, and security evidence.
-                        </p>
-                      </div>
-                    </div>
-                  </div>
+
+        <!-- Tab Pills -->
+        <div class="inline-flex w-fit items-center gap-0.5 min-[250px]:gap-1 bg-gray-100 p-0.5 min-[250px]:p-1 rounded-xl flex-wrap">
+          <button id="tab-archer" onclick="switchAgent('archer')"
+            style="font-size: clamp(9px, 2.74vw, 14px);"
+            class="flex items-center gap-1 min-[250px]:gap-2 px-2 min-[250px]:px-4 sm:px-5 py-1.5 min-[250px]:py-2.5 rounded-lg font-medium transition-all cursor-pointer bg-black text-white whitespace-nowrap">
+            Meet Archer
+            <img src="./src/assets/Sud.png" loading="lazy" alt="archer"
+              class="brightness-0 invert w-3 min-[250px]:w-4 h-3 min-[250px]:h-4" />
+          </button>
+          <button id="tab-knox" onclick="switchAgent('knox')"
+            style="font-size: clamp(9px, 2.74vw, 14px);"
+            class="flex items-center gap-1 min-[250px]:gap-2 px-2 min-[250px]:px-4 sm:px-5 py-1.5 min-[250px]:py-2.5 rounded-lg font-medium transition-all cursor-pointer bg-transparent text-black hover:bg-gray-200 whitespace-nowrap">
+            Meet Knox
+            <img src="./src/assets/kg.png" loading="lazy" alt="knox"
+              class="w-3 min-[250px]:w-4 h-3 min-[250px]:h-4" />
+          </button>
+        </div>
+      </div>
+
+      <!-- ── Archer Agent ── -->
+      <div id="mobile-agent-archer">
+        <div class="border border-[#e5e7eb] rounded-xl overflow-hidden flex flex-col">
+
+          <!-- Hero Card -->
+          <div class="p-3.5 bg-white border-b border-[#e5e7eb]">
+            <div class="relative flex flex-col justify-between overflow-hidden"
+              style="
+                background: linear-gradient(180deg, #201cae 0%, #6aa4ee 100%);
+                padding: clamp(16px, 5vw, 32px);
+                height: clamp(240px, 75vw, 360px);
+                border-radius: 8px;
+              ">
+              <div class="noise-overlay absolute inset-0 opacity-100 pointer-events-none"></div>
+              <div class="relative">
+                <img src="./src/assets/Frame (9).png" loading="lazy" alt=""
+                  style="width: clamp(60px, 18vw, 112px); height: auto; opacity: 0.9;" />
+              </div>
+              <div class="relative mt-auto">
+                <h3 style="font-size: clamp(16px, 6.7vw, 32px); font-weight:400; color:#fff; margin-bottom: clamp(8px,2.5vw,16px); line-height:1.1;">
+                  RFP Agent
+                </h3>
+                <div class="flex flex-wrap" style="gap: clamp(4px, 1.5vw, 8px);">
+                  <span style="font-size: clamp(9px, 2.74vw, 13px); padding: clamp(3px,1vw,4px) clamp(6px,2vw,12px);"
+                    class="text-white bg-white/20 rounded-[4px] border border-white/40 font-normal">Instant RFP breakdown</span>
+                  <span style="font-size: clamp(9px, 2.74vw, 13px); padding: clamp(3px,1vw,4px) clamp(6px,2vw,12px);"
+                    class="text-white bg-white/20 rounded-[4px] border border-white/40 font-normal">Terminology translation</span>
+                  <span style="font-size: clamp(9px, 2.74vw, 13px); padding: clamp(3px,1vw,4px) clamp(6px,2vw,12px);"
+                    class="text-white bg-white/20 rounded-[4px] border border-white/40 font-normal">Proposal-ready answers</span>
                 </div>
               </div>
             </div>
           </div>
+
+          <!-- Feature Grid -->
+          <div class="p-2 min-[250px]:p-4 relative overflow-hidden">
+            <div class="absolute inset-0 pointer-events-none opacity-[0.1]"
+              style="background-image: linear-gradient(to right,#000 1px,transparent 1px), linear-gradient(to bottom,#000 1px,transparent 1px); background-size:150px 150px;"></div>
+            <div class="grid grid-cols-1 min-[250px]:grid-cols-2 grid-rows-4 min-[250px]:grid-rows-2 bg-[#f4f4f5] relative z-10">
+
+              <div class="flex flex-col justify-between border-b min-[250px]:border-r border-[#e5e7eb]"
+                style="padding: clamp(10px, 3.5vw, 24px); min-height: clamp(100px, 35vw, 160px);">
+                <h4 style="font-size: clamp(11px, 3.73vw, 16px); font-weight:400; color:#000; line-height:1.2;">
+                  Instant RFP<br />intelligence
+                </h4>
+                <p style="font-size: clamp(10px, 3vw, 13px); color:#6b7280; line-height:1.4; margin-top: clamp(6px,2vw,12px);">
+                  Automatically extracts key requirements, timelines, stakeholders, and evaluation criteria.
+                </p>
+              </div>
+
+              <div class="flex flex-col justify-between border-b border-[#e5e7eb]"
+                style="padding: clamp(10px, 3.5vw, 24px); min-height: clamp(100px, 35vw, 160px);">
+                <h4 style="font-size: clamp(11px, 3.73vw, 16px); font-weight:400; color:#000; line-height:1.2;">
+                  Terminology<br />mapping
+                </h4>
+                <p style="font-size: clamp(10px, 3vw, 13px); color:#6b7280; line-height:1.4; margin-top: clamp(6px,2vw,12px);">
+                  Translates feature requirements to your internal product language.
+                </p>
+              </div>
+
+              <div class="flex flex-col justify-between border-b min-[250px]:border-b-0 min-[250px]:border-r border-[#e5e7eb]"
+                style="padding: clamp(10px, 3.5vw, 24px); min-height: clamp(100px, 35vw, 160px);">
+                <h4 style="font-size: clamp(11px, 3.73vw, 16px); font-weight:400; color:#000; line-height:1.2;">
+                  Bid / No-Bid<br />clarity
+                </h4>
+                <p style="font-size: clamp(10px, 3vw, 13px); color:#6b7280; line-height:1.4; margin-top: clamp(6px,2vw,12px);">
+                  Helps teams decide whether to pursue.
+                </p>
+              </div>
+
+              <div class="flex flex-col justify-between border-[#e5e7eb]"
+                style="padding: clamp(10px, 3.5vw, 24px); min-height: clamp(100px, 35vw, 160px);">
+                <h4 style="font-size: clamp(11px, 3.73vw, 16px); font-weight:400; color:#000; line-height:1.2;">
+                  Structured proposal<br />generation
+                </h4>
+                <p style="font-size: clamp(10px, 3vw, 13px); color:#6b7280; line-height:1.4; margin-top: clamp(6px,2vw,12px);">
+                  Generates responses across technical, product, security, and legal sections with contextual intelligence.
+                </p>
+              </div>
+
+            </div>
+          </div>
         </div>
       </div>
+
+      <!-- ── Knox Agent ── -->
+      <div id="mobile-agent-knox" class="hidden">
+        <div class="border border-[#e5e7eb] rounded-xl overflow-hidden flex flex-col">
+
+          <!-- Hero Card -->
+          <div class="p-3.5 bg-white border-b border-[#e5e7eb]">
+            <div class="relative flex flex-col justify-between overflow-hidden"
+              style="
+                background: linear-gradient(45deg, #1d80f9 0%, #e74f62 100%);
+                padding: clamp(16px, 5vw, 32px);
+                height: clamp(240px, 75vw, 360px);
+                border-radius: 8px;
+              ">
+              <div class="noise-overlay absolute inset-0 opacity-100 pointer-events-none"></div>
+              <div class="relative">
+                <img src="./src/assets/Frame (10).png" loading="lazy" alt=""
+                  style="width: clamp(60px, 18vw, 112px); height: auto; opacity: 0.9;" />
+              </div>
+              <div class="relative mt-auto">
+                <h3 style="font-size: clamp(14px, 5.97vw, 32px); font-weight:400; color:#fff; margin-bottom: clamp(8px,2.5vw,16px); line-height:1.1;">
+                  Security<br />Questionnaire Agent
+                </h3>
+                <div class="flex flex-wrap" style="gap: clamp(4px, 1.5vw, 8px);">
+                  <span style="font-size: clamp(9px, 2.74vw, 13px); padding: clamp(3px,1vw,4px) clamp(6px,2vw,12px);"
+                    class="text-white bg-white/20 rounded-[4px] border border-white/40 font-normal">Evidence-backed answers</span>
+                  <span style="font-size: clamp(9px, 2.74vw, 13px); padding: clamp(3px,1vw,4px) clamp(6px,2vw,12px);"
+                    class="text-white bg-white/20 rounded-[4px] border border-white/40 font-normal">No contradictions</span>
+                  <span style="font-size: clamp(9px, 2.74vw, 13px); padding: clamp(3px,1vw,4px) clamp(6px,2vw,12px);"
+                    class="text-white bg-white/20 rounded-[4px] border border-white/40 font-normal">Compliance-ready</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Feature Grid -->
+          <div class="p-2 min-[250px]:p-4 relative overflow-hidden">
+            <div class="absolute inset-0 pointer-events-none opacity-[0.1]"
+              style="background-image: linear-gradient(to right,#000 1px,transparent 1px), linear-gradient(to bottom,#000 1px,transparent 1px); background-size:150px 150px;"></div>
+            <div class="grid grid-cols-1 min-[250px]:grid-cols-2 grid-rows-4 min-[250px]:grid-rows-2 bg-[#f4f4f5] relative z-10">
+
+              <div class="flex flex-col justify-between border-b min-[250px]:border-r border-[#e5e7eb]"
+                style="padding: clamp(10px, 3.5vw, 24px); min-height: clamp(100px, 35vw, 160px);">
+                <h4 style="font-size: clamp(11px, 3.73vw, 16px); font-weight:400; color:#000; line-height:1.2;">
+                  95%+ response<br />accuracy
+                </h4>
+                <p style="font-size: clamp(10px, 3vw, 13px); color:#6b7280; line-height:1.4; margin-top: clamp(6px,2vw,12px);">
+                  Generated from verified security documentation.
+                </p>
+              </div>
+
+              <div class="flex flex-col justify-between border-b border-[#e5e7eb]"
+                style="padding: clamp(10px, 3.5vw, 24px); min-height: clamp(100px, 35vw, 160px);">
+                <h4 style="font-size: clamp(11px, 3.73vw, 16px); font-weight:400; color:#000; line-height:1.2;">
+                  70-90% faster<br />reviews
+                </h4>
+                <p style="font-size: clamp(10px, 3vw, 13px); color:#6b7280; line-height:1.4; margin-top: clamp(6px,2vw,12px);">
+                  Eliminates repetitive questionnaires saving SME time.
+                </p>
+              </div>
+
+              <div class="flex flex-col justify-between border-b min-[250px]:border-b-0 min-[250px]:border-r border-[#e5e7eb]"
+                style="padding: clamp(10px, 3.5vw, 24px); min-height: clamp(100px, 35vw, 160px);">
+                <h4 style="font-size: clamp(11px, 3.73vw, 16px); font-weight:400; color:#000; line-height:1.2;">
+                  Audit-ready<br />answers
+                </h4>
+                <p style="font-size: clamp(10px, 3vw, 13px); color:#6b7280; line-height:1.4; margin-top: clamp(6px,2vw,12px);">
+                  Aligned with current policies and controls.
+                </p>
+              </div>
+
+              <div class="flex flex-col justify-between border-[#e5e7eb]"
+                style="padding: clamp(10px, 3.5vw, 24px); min-height: clamp(100px, 35vw, 160px);">
+                <h4 style="font-size: clamp(11px, 3.73vw, 16px); font-weight:400; color:#000; line-height:1.2;">
+                  Evidence-backed<br />responses
+                </h4>
+                <p style="font-size: clamp(10px, 3vw, 13px); color:#6b7280; line-height:1.4; margin-top: clamp(6px,2vw,12px);">
+                  Every answer is grounded in policies, certifications, and security evidence.
+                </p>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
     </div>
-  </section>
+  </div>
+
+  <!-- Desktop section unchanged -->
+  <div id="two-agents-desktop" class="hidden lg:block w-full bg-white relative" style="height: 200vh">
+    <!-- ... your existing desktop code stays exactly as-is ... -->
+  </div>
+</section>
 
 
   <section data-section id="features" class="scroll-mt-12 mt-[1120px] md:mt-[200px] lg:mt-[280px]">
