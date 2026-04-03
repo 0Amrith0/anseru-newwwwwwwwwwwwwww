@@ -546,62 +546,63 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 // ── Assets for Workflow ──────────────────────────────────────────────────
-import bidIcon from "./assets/bid.png";
-import docIcon from "./assets/doc.png";
-import proposalIcon from "./assets/proposal.png";
-import reqIcon from "./assets/req.png";
-import smeIcon from "./assets/sme.png";
-import winlossIcon from "./assets/winloss.png";
-import custInsightsIcon from "./assets/cust_insights.png";
-import leadEvalIcon from "./assets/lead_eval.png";
 import riAiIcon from "./assets/ri_ai.png";
+import wfIcon1 from "./assets/workflow-icon-1.png";
+import wfIcon2 from "./assets/workflow-icon-2.png";
+import wfIcon3 from "./assets/workflow-icon-3.png";
+import wfIcon4 from "./assets/workflow-icon-4.png";
+import wfIcon5 from "./assets/workflow-icon-5.png";
+import wfIcon6 from "./assets/workflow-icon-6.png";
+import wfIcon7 from "./assets/workflow-icon-7.png";
+import wfIcon8 from "./assets/workflow-icon-8.png";
+import wfIcon9 from "./assets/workflow-icon-9.png";
 
 (function () {
   const STEPS = [
     {
       title: "RFP Decomposition",
       desc: "Break complex RFPs into structured sections and extract key requirements.",
-      icon: docIcon,
+      icon: wfIcon1,
     },
     {
       title: "Deal Qualification",
       desc: "Evaluate fit, assess win probability, and decide whether to pursue.",
-      icon: bidIcon,
+      icon: wfIcon2,
     },
     {
       title: "Requirement Intelligence",
       desc: "Categorize questions, tag by topic, and route to the right teams.",
-      icon: reqIcon,
+      icon: wfIcon3,
     },
     {
       title: "Proposal Architecture",
       desc: "Generate a structured proposal outline and response flow.",
-      icon: proposalIcon,
+      icon: wfIcon4,
     },
     {
       title: "First Winnable Draft",
       desc: "Generate contextual first drafts using enterprise knowledge.",
-      icon: riAiIcon,
+      icon: wfIcon5,
     },
     {
       title: "SME Collaboration",
       desc: "Route complex responses to subject matter experts for review.",
-      icon: smeIcon,
+      icon: wfIcon6,
     },
     {
       title: "Final Proposal",
       desc: "Deliver a polished proposal ready for submission.",
-      icon: leadEvalIcon,
+      icon: wfIcon7,
     },
     {
       title: "Win–Loss Capture",
       desc: "Capture deal outcomes and key insights.",
-      icon: winlossIcon,
+      icon: wfIcon8,
     },
     {
       title: "Smarter Next Deal",
       desc: "Feed insights back to improve future responses.",
-      icon: custInsightsIcon,
+      icon: wfIcon9,
     },
   ];
 
