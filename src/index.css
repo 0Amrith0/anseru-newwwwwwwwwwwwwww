@@ -522,7 +522,7 @@ section[data-section] {
   z-index: 2;
   opacity: 0.2;
   transition: opacity 0.5s ease;
-  min-height: 36px;
+  min-height: 48px; /* Increased to accommodate 40px circles */
 }
 
 .step-row.active {
@@ -555,20 +555,32 @@ section[data-section] {
 .step-node-col::before {
   content: "";
   position: absolute;
-  top: 47px;
-  /* 2px overlap with the 48px wrapper */
-  bottom: -1.5px; /* +2px height extension */
+  top: 0;
+  bottom: 0;
   left: 50%;
   width: 1.5px;
-  /* Pro thickness */
-  background: #D9D9D9;
+  background-color: #D9D9D9;
   transform: translateX(-50%);
   z-index: 0;
 }
 
-/* Stop backbone at the final icon */
+/* Specific line trimming for first and last rows to align with outer edges of icons */
+.step-row:first-child .step-node-col::before {
+  background: linear-gradient(to bottom, 
+      transparent 0%, 
+      transparent calc(50% + 20px), 
+      #D9D9D9 calc(50% + 20px), 
+      #D9D9D9 100%
+  );
+}
+
 .step-row:last-child .step-node-col::before {
-  display: none;
+  background: linear-gradient(to bottom, 
+      #D9D9D9 0%, 
+      #D9D9D9 calc(50% - 20px), 
+      transparent calc(50% - 20px), 
+      transparent 100%
+  );
 }
 
 .node-wrapper {
@@ -641,8 +653,7 @@ section[data-section] {
 /* Symbols */
 .connector-symbols {
   position: absolute;
-  top: 80%;
-  /* Position between icons */
+  top: 100%; /* Placed at the junction of rows */
   left: 50%;
   display: flex;
   flex-direction: row;

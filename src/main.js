@@ -612,7 +612,7 @@ import riAiIcon from "./assets/ri_ai.png";
     const stepsList = document.getElementById("steps-list");
     if (!section || !stepsList) return;
 
-    stepsList.innerHTML = "";
+    stepsList.innerHTML = '<div class="workflow-backbone"></div>';
     STEPS.forEach((step, i) => {
       const row = document.createElement("div");
       row.className = "step-row";
@@ -626,10 +626,11 @@ import riAiIcon from "./assets/ri_ai.png";
           </div>
           ${i < STEPS.length - 1 ? `
           <div class="connector-symbols">
+            <div class="connector-ring"></div>
             <div class="connector-symbol symbol-left">
               <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-                <polyline points="7 13 12 18 17 13"></polyline>
-                <polyline points="7 6 12 11 17 6"></polyline>
+                <polyline points="7 11 12 6 17 11"></polyline>
+                <polyline points="7 18 12 13 17 18"></polyline>
               </svg>
             </div>
             <div class="connector-symbol symbol-right">
@@ -648,6 +649,18 @@ import riAiIcon from "./assets/ri_ai.png";
       `;
       stepsList.appendChild(row);
     });
+
+    // Position the backbone line between the center of the first and last icons
+    const backbone = stepsList.querySelector(".workflow-backbone");
+    const allWrappers = stepsList.querySelectorAll(".node-wrapper");
+    if (backbone && allWrappers.length > 1) {
+      const first = allWrappers[0];
+      const last = allWrappers[allWrappers.length - 1];
+      const startY = first.offsetTop + first.offsetHeight / 2;
+      const endY = last.offsetTop + last.offsetHeight / 2;
+      backbone.style.top = `${startY}px`;
+      backbone.style.height = `${endY - startY}px`;
+    }
 
 
     const rows = gsap.utils.toArray(".step-row");
@@ -707,9 +720,10 @@ import riAiIcon from "./assets/ri_ai.png";
     tl.to({}, { duration: 2 });
   }
 
-  window.addEventListener("load", () => {
-    // Wait for everything to be ready
-    setTimeout(initWorkflow, 100);
-  });
-  window.addEventListener("resize", initWorkflow);
+document.addEventListener("DOMContentLoaded", () => {
+  initWorkflow();
+});
+window.addEventListener("resize", () => {
+  initWorkflow();
+});
 })();
