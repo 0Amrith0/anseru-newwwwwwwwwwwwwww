@@ -526,25 +526,6 @@ function initFlipCards() {
 
 // ── Workflow Section Animations ────────────────────────────────────────────────
 
-
-// ── Init ──────────────────────────────────────────────────────────────────────
-document.addEventListener("DOMContentLoaded", () => {
-  applyAssets();
-  initNavbar();
-  initFlipCards();
-  initProblemCarousel();
-
-  // Call gap eliminator on load and resize
-  eliminateGap();
-  window.addEventListener("resize", eliminateGap);
-
-  initMobileCarousel();
-  initDesktopCarousel();
-  initDesktopTwoAgents();
-  initFAQ();
-  initFeatures();
-});
-
 // ── Assets for Workflow ──────────────────────────────────────────────────
 import riAiIcon from "./assets/ri_ai.png";
 import wfIcon1 from "./assets/workflow-icon-1.png";
@@ -611,7 +592,7 @@ import wfIcon9 from "./assets/workflow-icon-9.png";
     const stepsList = document.getElementById("steps-list");
     if (!section || !stepsList) return;
 
-    stepsList.innerHTML = '<div class="workflow-backbone"></div>';
+    stepsList.innerHTML = ''; // no backbone — we'll draw segments between circles
     STEPS.forEach((step, i) => {
       const row = document.createElement("div");
       row.className = "step-row";
@@ -649,27 +630,44 @@ import wfIcon9 from "./assets/workflow-icon-9.png";
       stepsList.appendChild(row);
     });
 
-    // Position the backbone line between the center of the first and last icons
-    const backbone = stepsList.querySelector(".workflow-backbone");
-    const allWrappers = stepsList.querySelectorAll(".node-wrapper");
-    if (backbone && allWrappers.length > 1) {
-      const getRelativeCenter = (el) => {
-        let top = 0;
-        let curr = el;
-        while (curr && curr !== stepsList) {
-          top += curr.offsetTop;
-          curr = curr.offsetParent;
-        }
-        return top + el.offsetHeight / 2;
-      };
+    // Shared helper: center of an element relative to stepsList
+    const getRelativeCenter = (el) => {
+      let top = 0;
+      let curr = el;
+      while (curr && curr !== stepsList) {
+        top += curr.offsetTop;
+        curr = curr.offsetParent;
+      }
+      return top + el.offsetHeight / 2;
+    };
 
-      const startY = getRelativeCenter(allWrappers[0]);
-      const endY = getRelativeCenter(allWrappers[allWrappers.length - 1]);
-      backbone.style.top = `${startY}px`;
-      backbone.style.height = `${endY - startY}px`;
+    // Draw inter-circle segments (line never passes through a circle)
+    function positionSegments() {
+      // Remove previous segments
+      stepsList.querySelectorAll('.workflow-segment').forEach(s => s.remove());
 
-      // Position the connector-symbols exactly between the centers of each row's circle
-      const symbols = stepsList.querySelectorAll(".connector-symbols");
+      const allWrappers = stepsList.querySelectorAll('.node-wrapper');
+      if (allWrappers.length < 2) return;
+
+      const RADIUS = allWrappers[0].offsetHeight / 2; // 20px for a 40px wrapper
+
+      allWrappers.forEach((wrapper, i) => {
+        if (i === allWrappers.length - 1) return; // no segment after last circle
+        const topCenter    = getRelativeCenter(wrapper);
+        const bottomCenter = getRelativeCenter(allWrappers[i + 1]);
+        const segTop    = topCenter + RADIUS;          // start below this circle
+        const segHeight = (bottomCenter - RADIUS) - segTop; // end above next circle
+        if (segHeight <= 0) return;
+
+        const seg = document.createElement('div');
+        seg.className = 'workflow-segment';
+        seg.style.top    = `${segTop}px`;
+        seg.style.height = `${segHeight}px`;
+        stepsList.appendChild(seg);
+      });
+
+      // Position connector-symbols midpoint between each pair
+      const symbols = stepsList.querySelectorAll('.connector-symbols');
       symbols.forEach((sym, idx) => {
         const center1 = getRelativeCenter(allWrappers[idx]);
         const center2 = getRelativeCenter(allWrappers[idx + 1]);
@@ -679,14 +677,24 @@ import wfIcon9 from "./assets/workflow-icon-9.png";
       });
     }
 
+    positionSegments();
+
 
     const rows = gsap.utils.toArray(".step-row");
 
     // Create GSAP Timeline for pinning and sequential animation (on mobile only)
     let mm = gsap.matchMedia();
     mm.add("(max-width: 1023px)", () => {
-      // Set initial state for all rows to ensure they start at 0.4 opacity
-      gsap.set(rows, { opacity: 0.4 });
+      const GREY_GRADIENT = "radial-gradient(circle at 40% 35%, #ffffff 0%, #e8e8e8 55%, #d4d4d4 100%)";
+
+      // Set initial states via GSAP so it fully owns these properties (avoids CSS !important conflicts)
+      rows.forEach((row) => {
+        const circle = row.querySelector(".node-circle");
+        const icon   = circle ? circle.querySelector("img") : null;
+        gsap.set(row,    { opacity: 0.4 });
+        gsap.set(circle, { background: GREY_GRADIENT, borderColor: "#e0e0e0", scale: 1 });
+        gsap.set(icon,   { opacity: 0.2, filter: "none" });
+      });
 
       const tl = gsap.timeline({
         scrollTrigger: {
@@ -717,10 +725,12 @@ import wfIcon9 from "./assets/workflow-icon-9.png";
         // Circle gradient and scale
         tl.to(circle, {
           background: "linear-gradient(135deg, #FF3B8D 0%, #4D79FF 100%)",
+          borderColor: "transparent",
           scale: 1.1,
           boxShadow: "0 4px 12px rgba(77, 121, 255, 0.3)",
           duration: 2,
         }, startTime);
+
 
         // Ring border color
         if (ring) {
@@ -759,34 +769,66 @@ import wfIcon9 from "./assets/workflow-icon-9.png";
   }
 
   window.addEventListener("resize", () => {
-    // Re-check backbone position and symbol positioning on resize
+    // Re-draw segments on resize
     const stepsList = document.getElementById("steps-list");
-    const backbone = stepsList?.querySelector(".workflow-backbone");
-    const allWrappers = stepsList?.querySelectorAll(".node-wrapper");
-    if (backbone && allWrappers && allWrappers.length > 1) {
-      const getRelativeCenter = (el) => {
-        let top = 0;
-        let curr = el;
-        while (curr && curr !== stepsList) {
-          top += curr.offsetTop;
-          curr = curr.offsetParent;
-        }
-        return top + el.offsetHeight / 2;
-      };
-      const startY = getRelativeCenter(allWrappers[0]);
-      const endY = getRelativeCenter(allWrappers[allWrappers.length - 1]);
-      backbone.style.top = `${startY}px`;
-      backbone.style.height = `${endY - startY}px`;
+    if (!stepsList) return;
 
-      const symbols = stepsList.querySelectorAll(".connector-symbols");
-      symbols.forEach((sym, idx) => {
-        const center1 = getRelativeCenter(allWrappers[idx]);
-        const center2 = getRelativeCenter(allWrappers[idx + 1]);
-        const midPoint = (center1 + center2) / 2;
-        const rowTop = allWrappers[idx].closest('.step-row').offsetTop;
-        sym.style.top = `${midPoint - rowTop}px`;
-      });
-    }
+    const getRelativeCenter = (el) => {
+      let top = 0;
+      let curr = el;
+      while (curr && curr !== stepsList) {
+        top += curr.offsetTop;
+        curr = curr.offsetParent;
+      }
+      return top + el.offsetHeight / 2;
+    };
+
+    stepsList.querySelectorAll('.workflow-segment').forEach(s => s.remove());
+    const allWrappers = stepsList.querySelectorAll('.node-wrapper');
+    if (allWrappers.length < 2) return;
+    const RADIUS = allWrappers[0].offsetHeight / 2;
+
+    allWrappers.forEach((wrapper, i) => {
+      if (i === allWrappers.length - 1) return;
+      const topCenter    = getRelativeCenter(wrapper);
+      const bottomCenter = getRelativeCenter(allWrappers[i + 1]);
+      const segTop    = topCenter + RADIUS;
+      const segHeight = (bottomCenter - RADIUS) - segTop;
+      if (segHeight <= 0) return;
+      const seg = document.createElement('div');
+      seg.className = 'workflow-segment';
+      seg.style.top    = `${segTop}px`;
+      seg.style.height = `${segHeight}px`;
+      stepsList.appendChild(seg);
+    });
+
+    const symbols = stepsList.querySelectorAll('.connector-symbols');
+    symbols.forEach((sym, idx) => {
+      const center1 = getRelativeCenter(allWrappers[idx]);
+      const center2 = getRelativeCenter(allWrappers[idx + 1]);
+      const midPoint = (center1 + center2) / 2;
+      const rowTop = allWrappers[idx].closest('.step-row').offsetTop;
+      sym.style.top = `${midPoint - rowTop}px`;
+    });
   });
 
 })();
+
+
+// ── Init ──────────────────────────────────────────────────────────────────────
+document.addEventListener("DOMContentLoaded", () => {
+  applyAssets();
+  initNavbar();
+  initFlipCards();
+  initProblemCarousel();
+
+  // Call gap eliminator on load and resize
+  eliminateGap();
+  window.addEventListener("resize", eliminateGap);
+
+  initMobileCarousel();
+  initDesktopCarousel();
+  initDesktopTwoAgents();
+  initFAQ();
+  initFeatures();
+});

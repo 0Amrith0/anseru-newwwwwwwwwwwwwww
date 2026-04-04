@@ -444,16 +444,20 @@ section[data-section] {
 }
 
 .wf-wrap {
-  padding: 56px 20px 4px; /* 56px top = navbar height offset */
+  padding: 56px 20px 4px;
+  /* 56px top = navbar height offset */
   max-width: 600px;
+  font-size: clamp(20px, 5.97vw, 46px);
   margin: 0 auto;
   font-family: 'DM Sans', sans-serif;
   display: flex;
   flex-direction: column;
-  align-items: flex-start; /* Left align everything in the column */
+  align-items: flex-start;
+  /* Left align everything in the column */
   justify-content: flex-start;
   position: relative;
   overflow: hidden;
+
 }
 
 @media (min-width: 1024px) {
@@ -481,7 +485,8 @@ section[data-section] {
   font-size: clamp(13px, 4vw, 18px);
   color: #111;
   margin: 0;
-  font-weight: 400; /* Removed bold */
+  font-weight: 400;
+  /* Removed bold */
   margin-bottom: 4px;
   line-height: 1.2;
   text-align: left !important;
@@ -491,7 +496,8 @@ section[data-section] {
   text-align: center !important;
   width: 100%;
   font-size: clamp(18px, 5.5vw, 28px);
-  font-weight: 400; /* Removed bold */
+  font-weight: 400;
+  /* Removed bold */
   color: #000;
   line-height: 1.1;
   letter-spacing: -0.02em;
@@ -530,7 +536,8 @@ section[data-section] {
   z-index: 2;
   opacity: 0.4;
   transition: opacity 0.5s ease;
-  min-height: 48px; /* Increased to accommodate 40px circles */
+  min-height: 48px;
+  /* Increased to accommodate 40px circles */
 }
 
 .step-row.active {
@@ -541,6 +548,7 @@ section[data-section] {
   background: linear-gradient(135deg, #FF3B8D 0%, #4D79FF 100%);
   box-shadow: 0 4px 12px rgba(77, 121, 255, 0.3);
   transform: scale(1.1);
+  border-color: transparent;
 }
 
 .step-row.active .node-circle img {
@@ -558,7 +566,8 @@ section[data-section] {
   align-self: stretch;
 }
 
-.workflow-backbone {
+/* Segments are drawn BETWEEN circles — never through them */
+.workflow-segment {
   position: absolute;
   left: 24px;
   width: 1.5px;
@@ -567,6 +576,7 @@ section[data-section] {
   z-index: 0;
   pointer-events: none;
 }
+
 
 .node-wrapper {
   position: relative;
@@ -577,7 +587,8 @@ section[data-section] {
   justify-content: center;
   z-index: 5;
   flex-shrink: 0;
-  background: white; /* Opaque white circle to cut the backbone */
+  background: white;
+  /* Opaque white circle to cut the backbone */
   border-radius: 50%;
 }
 
@@ -600,20 +611,23 @@ section[data-section] {
   width: 30px;
   height: 30px;
   border-radius: 50%;
-  background: white;
-  /* Hides backbone behind icon */
+  background: #ebebeb;
+  /* fallback — GSAP sets the radial gradient via gsap.set() on init */
+  border: 1.5px solid #e0e0e0;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  transition: border-color 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  /* only non-GSAP prop */
+  box-shadow: inset 0 1px 3px rgba(255, 255, 255, 0.8), 0 1px 4px rgba(0, 0, 0, 0.08);
   z-index: 2;
 }
 
 .node-circle img {
   width: 18px;
   height: 18px;
-  opacity: 0.4;
+  opacity: 0.2;
+  /* Very faint in pre-reveal state */
   transition: all 0.4s;
   object-fit: contain;
 }
@@ -625,7 +639,8 @@ section[data-section] {
 
 .step-title {
   font-size: clamp(14px, 3.5vw, 16px);
-  font-weight: 400; /* Removed bold */
+  font-weight: 400;
+  /* Removed bold */
   color: #111;
   margin: 0;
 }
@@ -640,13 +655,14 @@ section[data-section] {
 /* Symbols */
 .connector-symbols {
   position: absolute;
-  top: 50%; /* Adjusted dynamically via JS for perfect between-circle centering */
+  top: 50%;
+  /* Adjusted dynamically via JS for perfect between-circle centering */
   left: 50%;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  gap: 12px;
+  gap: 3px;   /* tight — symbols hug the line */
   transform: translate(-50%, -50%);
   z-index: 10;
   width: 40px;
@@ -659,9 +675,10 @@ section[data-section] {
   transform: translate(-50%, -50%);
   width: 24px;
   height: 24px;
-  border: 1.2px solid #D9D9D9; 
+  border: 1.2px solid #D9D9D9;
   border-radius: 50%;
-  background: white; /* Cuts backbone inside rings too */
+  background: white;
+  /* Cuts backbone inside rings too */
   z-index: -1;
 }
 
@@ -676,12 +693,13 @@ section[data-section] {
 }
 
 .symbol-left {
-  transform: translateX(-4px);
+  transform: translateX(-1px);
 }
 
 .symbol-right {
-  transform: translateX(4px);
+  transform: translateX(1px);
 }
+
 
 .step-row:last-child .step-body {
   padding-bottom: 0;
