@@ -467,53 +467,64 @@ function eliminateGap() {
 }
 
 // ── Problem section scroll animation ───────────────────────────────────────
+// ── Problem section auto-slide animation ───────────────────────────────────────
 function initProblemCarousel() {
-  ScrollTrigger.matchMedia({
-    "(max-width: 767px)": function () {
-      const parentWrap = document.getElementById("problem-how-wrapper");
-      const pinTarget = document.getElementById("problem-pin-target");
-      const track = document.getElementById("problem-carousel-track");
-      if (!parentWrap || !pinTarget || !track) return;
+  const track = document.getElementById("problem-mobile-track");
+  const dotsContainer = document.getElementById("problem-dots-mobile");
+  if (!track || !dotsContainer) return;
 
-      setTimeout(() => {
-        const maxScrollDist = track.scrollWidth - window.innerWidth + 32;
+  const slides = track.querySelectorAll(".prob-card-wrap");
+  const slideCount = slides.length;
+  const dots = dotsContainer.querySelectorAll("button");
+  let currentIdx = 0;
+  let autoSlideInterval;
 
-        gsap.to(track, {
-          x: () => -maxScrollDist,
-          ease: "none",
-          scrollTrigger: {
-            trigger: parentWrap,
-            start: "top top",
-            end: () => `+=${maxScrollDist * 2}`,
-            pin: true,
-            scrub: 1,
-            snap: {
-              snapTo: 1 / 2,
-              duration: 0.3,
-              delay: 0.1,
-              ease: "power1.inOut"
-            }
-          }
-        });
-      }, 50);
-    }
+  function updateDots(idx) {
+    dots.forEach((dot, i) => {
+      const isActive = i === idx;
+      dot.className = `w-1.5 h-1.5 rounded-full transition-all duration-300 ${isActive ? "bg-[#2C48DB] w-4" : "bg-gray-300"}`;
+    });
+  }
+
+  function goToSlide(idx) {
+    if (idx < 0) idx = slideCount - 1;
+    if (idx >= slideCount) idx = 0;
+    currentIdx = idx;
+    
+    const slideWidth = track.offsetWidth / 3; // 300% width, so each slide is 1/3 of track
+    // Actually track.offsetWidth is 300% of parent. 
+    // It's easier to use percentage.
+    track.style.transform = `translateX(-${idx * 33.3333}%)`;
+    updateDots(idx);
+  }
+
+  function startAutoSlide() {
+    stopAutoSlide();
+    autoSlideInterval = setInterval(() => {
+      goToSlide(currentIdx + 1);
+    }, 3000);
+  }
+
+  function stopAutoSlide() {
+    if (autoSlideInterval) clearInterval(autoSlideInterval);
+  }
+
+  // Handle dot clicks
+  dots.forEach((dot, i) => {
+    dot.addEventListener("click", () => {
+      goToSlide(i);
+      startAutoSlide(); // reset interval
+    });
   });
-}
-function getSlideWidth() {
-  const wrapper = document.getElementById('prob-track-wrapper');
-  return wrapper ? wrapper.offsetWidth : window.innerWidth;
-}
 
-function goToSlide(idx) {
-  idx = Math.max(0, Math.min(SLIDES - 1, idx));
-  currentIdx = idx;
-  const slideWidth = getSlideWidth();
-  pTrack.style.transition = 'transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
-  pTrack.style.transform = `translateX(-${idx * slideWidth}px)`;
-  updateDots(idx);
-}
+  // Pause on hover
+  track.addEventListener("mouseenter", stopAutoSlide);
+  track.addEventListener("mouseleave", startAutoSlide);
 
-window.addEventListener('resize', () => goToSlide(currentIdx));
+  // Initialize
+  updateDots(0);
+  startAutoSlide();
+}
 
 // ── 3D flip cards ────────────────────────────────────────────────────────────
 function initFlipCards() {
@@ -709,15 +720,19 @@ import wfIcon9 from "./assets/workflow-icon-9.png";
         gsap.set(icon, { opacity: 0 });
       });
 
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: section,
-          start: "top top", // Stick at the top of the screen
-          end: "+=2500", // Slightly longer for 9 steps
-          pin: true,
-          scrub: 1, // Smoother scrub
-          anticipatePin: 1,
-        },
+      const tl = gsap.timeline();
+      ScrollTrigger.create({
+        trigger: section,
+        start: "top top", // Stick at the top of the screen
+        end: "+=700", // Shorter for 9 steps
+        pin: true,
+        anticipatePin: 1,
+        onUpdate: (self) => {
+          // Only move the timeline forward, preventing "un-reveal" on scroll up
+          if (self.progress > tl.progress()) {
+            gsap.to(tl, { progress: self.progress, duration: 0.3, ease: "power1.out" });
+          }
+        }
       });
 
       // Animate each row's opacity and the active state
@@ -727,12 +742,12 @@ import wfIcon9 from "./assets/workflow-icon-9.png";
         const icon = circle.querySelector("img");
         const connector = row.querySelector(".connector-symbols");
 
-        const startTime = i * 4;
+        const startTime = i * 2.5;
 
         // Opacity of the whole row - animation should start from 0.4 to 1
         tl.to(row, {
           opacity: 1,
-          duration: 2,
+          duration: 1.5,
         }, startTime);
 
         // Circle image background and scale
@@ -740,7 +755,7 @@ import wfIcon9 from "./assets/workflow-icon-9.png";
           borderColor: "transparent",
           scale: 1.1,
           filter: "grayscale(0) opacity(1)",
-          duration: 2,
+          duration: 1.5,
         }, startTime);
 
         // Ring keeps CSS color #D9D9D9 — no GSAP override, always matches segment
@@ -748,27 +763,27 @@ import wfIcon9 from "./assets/workflow-icon-9.png";
         // Animate this row's connecting segment (below it) in sync with the row
         const seg = stepsList.querySelector(`.workflow-segment[data-seg-index="${i}"]`);
         if (seg) {
-          tl.to(seg, { opacity: 1, duration: 2 }, startTime);
+          tl.to(seg, { opacity: 1, duration: 1.5 }, startTime);
         }
 
         // Icon inversion
         tl.to(icon, {
           filter: "brightness(0) invert(1)",
           opacity: 1,
-          duration: 2,
+          duration: 1.5,
         }, startTime);
 
         // Connector symbols opacity (if they exist)
         if (connector) {
           tl.to(connector, {
             opacity: 1,
-            duration: 2,
+            duration: 1.5,
           }, startTime);
         }
       });
 
       // Add a small buffer at the end
-      tl.to({}, { duration: 4 });
+      tl.to({}, { duration: 1 });
     });
   }
 

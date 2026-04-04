@@ -245,16 +245,14 @@ section[data-section] {
 .anseru-h4 {
   @apply text-[20px] font-normal whitespace-pre-line leading-[1.4] tracking-[-0.02em];
 }
-
 .prob-card {
   position: relative;
   width: 100%;
   max-width: 340px;
-  height: clamp(420px, 140vw, 500px);
+  height: clamp(520px, 175vw, 650px);
   margin: 0 auto;
   perspective: 1000px;
 }
-
 .prob-card-inner {
   position: relative;
   width: 100%;
@@ -322,7 +320,8 @@ section[data-section] {
 .prob-bullet-row {
   display: flex;
   align-items: flex-start;
-  gap: clamp(8px, 2.5vw, 12px);
+    gap: clamp(16px, 5vw, 28px);
+
   flex: 1;
 }
 

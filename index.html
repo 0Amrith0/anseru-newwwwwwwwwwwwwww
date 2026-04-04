@@ -491,13 +491,12 @@
         </div>
 
         <!-- MOBILE CAROUSEL -->
-        <div id="problem-mobile-gsap" class="md:hidden relative w-full bg-white " style="height: 250vh;">
-          <div class="sticky top-14 w-full bg-white flex flex-col" style="
-            height: auto;
-            overflow: hidden;
-            box-sizing: border-box;
-            
-          ">
+<div id="problem-mobile-gsap" class="md:hidden relative w-full bg-white" style="height: auto;">
+  <div class="w-full bg-white flex flex-col" style="
+    height: auto;
+    overflow: hidden;
+    box-sizing: border-box;
+  ">
 
             <!-- Mobile Header -->
             <div>
@@ -707,7 +706,7 @@
 
                 <!-- Card 1: Sales -->
                 <div style="width: 33.333333%; display: flex; justify-content: center; flex-shrink: 0;">
-                  <div class="prob-card-wrap snap-center">
+                  <div class="prob-card-wrap">
                     <div class="prob-card team-card">
                       <div class="prob-card-inner team-card-inner">
                         <!-- Front -->
@@ -834,8 +833,8 @@
 
                 <!-- Card 3: Compliance -->
                 <div
-                  style="width: 33.333333%; display: flex; justify-content: center; flex-shrink: 0; scroll-snap-align: center;">
-                  <div class="prob-card-wrap snap-center">
+                  style="width: 33.333333%; display: flex; justify-content: center; flex-shrink: 0;">
+                  <div class="prob-card-wrap">
                     <div class="prob-card team-card">
                       <div class="prob-card-inner team-card-inner">
                         <!-- Front -->
@@ -907,63 +906,6 @@
             </div>
           </div>
         </div>
-        <script>
-          (function () {
-            const pSection = document.getElementById('problem-mobile-gsap');
-            if (!pSection) return;
-
-            const pTrack = document.getElementById('problem-mobile-track');
-            if (!pTrack) return;
-            const pDots = document.querySelectorAll('#problem-dots-mobile .problem-dot');
-            const SLIDES = 3;
-            let currentIdx = -1;
-
-            function updateDots(activeIdx) {
-              pDots.forEach((dot, i) => {
-                dot.className = i === activeIdx
-                  ? "problem-dot transition-all duration-300 w-5 h-2 bg-gray-700 rounded-full"
-                  : "problem-dot transition-all duration-300 w-2 h-2 bg-gray-300 rounded-full";
-              });
-            }
-
-            function goToCard(idx) {
-              idx = Math.max(0, Math.min(SLIDES - 1, idx));
-              if (idx === currentIdx) return;
-              currentIdx = idx;
-              const pct = idx * (100 / SLIDES);
-              pTrack.style.transform = `translateX(-${pct}%)`;
-              updateDots(idx);
-            }
-
-            function pOnScroll() {
-              const sectionTop = pSection.getBoundingClientRect().top + window.scrollY;
-              const scrolled = window.scrollY - sectionTop;
-              const range = Math.max(1, pSection.offsetHeight - window.innerHeight);
-              const progress = Math.min(1, Math.max(0, scrolled / range));
-
-              // Each card gets equal share: card 0 = 0–0.33, card 1 = 0.33–0.66, card 2 = 0.66–1
-              const activeIdx = Math.min(SLIDES - 1, Math.floor(progress * SLIDES));
-              goToCard(activeIdx);
-            }
-
-            window.scrollToProblemMobileSlide = function (idx) {
-              idx = Math.max(0, Math.min(SLIDES - 1, idx));
-              const sectionTop = pSection.getBoundingClientRect().top + window.scrollY;
-              const range = pSection.offsetHeight - window.innerHeight;
-              // Go to the start of each card's zone
-              const targetY = sectionTop + (idx / SLIDES) * range;
-              window.scrollTo({ top: targetY, behavior: 'smooth' });
-            };
-
-            pDots.forEach((dot, idx) => {
-              dot.addEventListener('click', () => window.scrollToProblemMobileSlide(idx));
-            });
-
-            window.addEventListener('scroll', pOnScroll, { passive: true });
-            window.addEventListener('resize', pOnScroll);
-            pOnScroll();
-          })();
-        </script>
         <!-- DESKTOP -->
         <div class="hidden md:grid grid-cols-3 gap-6 md:gap-8">
           <!-- Sales Card -->
@@ -2299,6 +2241,7 @@
     font-weight: 400;
     line-height: 1.2;
     text-align: center;
+    margin-top: 20px !important;
     width: 100%;
     margin: 0 0 clamp(16px, 4vw, 24px) 0;
   ">
@@ -2310,278 +2253,254 @@
       <div class="steps-list" id="steps-list"></div>
     </div>
   </div>
+<section data-section id="features" class="scroll-mt-12">
+  <div class="w-full bg-white overflow-hidden">
+    <div class="max-w-[1400px] mx-auto px-3 min-[250px]:px-6 md:px-12">
 
-  <section data-section id="features" class="scroll-mt-12">
-    <div class="w-full bg-white overflow-hidden">
-      <div class="max-w-[1400px] mx-auto px-3 min-[250px]:px-6 md:px-12">
+      <div class="flex flex-col md:flex-row justify-between items-start mb-10 md:mb-16 gap-4 md:gap-8">
+        <div style="padding-top: clamp(52px,13vw,68px);">
+          <p style="font-size: clamp(14px,3vw,15px); color: #6B7280; margin-bottom: 3px;">Platform Features</p>
+          <h2 style="
+            font-size: clamp(16px,5.5vw,26px);
+            font-weight: 400;
+            color: #111827;
+            line-height: 1.15;
+            letter-spacing: -0.02em;
+            margin-bottom: clamp(8px,2.5vw,14px);
+          ">Powerful Capabilities for Modern Deal Teams</h2>
+        </div>
 
-        <div class="flex flex-col md:flex-row justify-between items-start mb-10 md:mb-16 gap-4 md:gap-8">
-          <div style="padding-top: clamp(52px,13vw,68px);">
-            <p style="font-size: clamp(14px,3vw,15px); color: #6B7280; margin-bottom: 3px;">Platform Features</p>
-            <h2 style="
-          font-size: clamp(16px,5.5vw,26px);
-          font-weight: 400;
-          color: #111827;
-          line-height: 1.15;
-          letter-spacing: -0.02em;
-          margin-bottom: clamp(8px,2.5vw,14px);
-        ">Powerful Capabilities for Modern Deal Teams</h2>
+        <div id="features-cards" class="flex flex-col lg:flex-row gap-4 md:gap-5 w-full items-start">
+
+          <!-- Card 1: Living Knowledge Graph — logo BOTTOM RIGHT, text TOP, arrow TOP RIGHT -->
+          <div
+            class="feature-card group relative bg-[#F9FAFB] flex flex-col w-full lg:min-h-[400px] xl:min-h-[440px] cursor-pointer"
+            onclick="this.classList.toggle('active')" style="flex: 1">
+            <div class="absolute right-3 top-3 z-10 w-6 h-6 flex items-center justify-center transition-transform duration-300 group-[.active]:rotate-180">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#9CA3AF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </div>
+            <div class="flex flex-col flex-grow h-full w-full">
+              <!-- Text top -->
+              <div class="p-6 md:p-8 xl:p-10 flex flex-col flex-grow transition-all duration-300">
+                <div class="mb-4">
+                  <h3 class="text-[20px] md:text-[24px] xl:text-[26px] font-[400] text-[#111827] mb-4 leading-[1.1]">
+                    Living<br />Knowledge Graph
+                  </h3>
+                  <p class="text-[13px] md:text-[14px] text-[#6b7280] leading-[1.6]">
+                    Your always-on Deal knowledge graph that learns as you win.
+                  </p>
+                </div>
+                <div
+                  class="opacity-0 max-h-0 overflow-hidden transition-all duration-500 ease-in-out group-hover:opacity-100 group-hover:max-h-[500px] group-hover:mt-6 group-[.active]:opacity-100 group-[.active]:max-h-[500px] group-[.active]:mt-6">
+                  <ul class="space-y-4">
+                    <li class="flex items-start gap-2.5">
+                      <svg class="w-4 h-4 text-gray-400 shrink-0 mt-[3px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M12 4v16M4 12h16M6.343 6.343l11.314 11.314M6.343 17.657l11.314-11.314" />
+                      </svg>
+                      <span class="text-[13px] text-[#6b7280] leading-[1.6]">Automatically indexes RFPs, security docs, proposals, and internal content</span>
+                    </li>
+                    <li class="flex items-start gap-2.5">
+                      <svg class="w-4 h-4 text-gray-400 shrink-0 mt-[3px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M12 4v16M4 12h16M6.343 6.343l11.314 11.314M6.343 17.657l11.314-11.314" />
+                      </svg>
+                      <span class="text-[13px] text-[#6b7280] leading-[1.6]">Stays current with real-time source updates &mdash; no manual maintenance</span>
+                    </li>
+                    <li class="flex items-start gap-2.5">
+                      <svg class="w-4 h-4 text-gray-400 shrink-0 mt-[3px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M12 4v16M4 12h16M6.343 6.343l11.314 11.314M6.343 17.657l11.314-11.314" />
+                      </svg>
+                      <span class="text-[13px] text-[#6b7280] leading-[1.6]">Gets smarter with every deal, surfacing the most relevant past responses</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <!-- Logo bottom right -->
+              <div class="h-24 md:h-[110px] flex w-full mt-auto">
+                <div class="flex-grow"
+                  style="background-image: repeating-linear-gradient(90deg, #f3f4f6 0px, #f3f4f6 1px, transparent 1px, transparent 12px);">
+                </div>
+                <div class="w-24 md:w-[110px] flex items-center justify-center shrink-0"
+                  style="background-color: #1c36e4">
+                  <img src="./src/assets/living.png" loading="lazy" class="w-10 h-10 md:w-14 md:h-14 object-contain" alt="" />
+                </div>
+              </div>
+            </div>
           </div>
 
-          <div id="features-cards" class="flex flex-col lg:flex-row gap-4 md:gap-5 w-full items-start">
-
-            <!-- Card 1: Living Knowledge Graph -->
-            <div
-              class="feature-card group relative bg-[#F9FAFB] flex flex-col w-full lg:min-h-[400px] xl:min-h-[440px] cursor-pointer"
-              onclick="this.classList.toggle('active')" style="flex: 1">
-              <div class="flex flex-col flex-grow h-full w-full">
-                <div class="h-24 md:h-[110px] flex w-full transition-all duration-300">
-                  <div class="w-24 md:w-[110px] flex items-center justify-center shrink-0"
-                    style="background-color: #1c36e4">
-                    <img src="./src/assets/living.png" loading="lazy" class="w-10 h-10 md:w-14 md:h-14 object-contain"
-                      alt="" />
-                  </div>
-                  <div class="flex-grow"
-                    style="background-image: repeating-linear-gradient(90deg, #f3f4f6 0px, #f3f4f6 1px, transparent 1px, transparent 12px);">
-                  </div>
+          <!-- Card 2: Cross-Team Collaboration — logo TOP LEFT, text below, arrow CENTER RIGHT -->
+          <div
+            class="feature-card group relative bg-[#F9FAFB] flex flex-col w-full lg:min-h-[400px] xl:min-h-[440px] cursor-pointer"
+            onclick="this.classList.toggle('active')" style="flex: 1">
+            <div class="absolute right-3 top-1/2 -translate-y-1/2 z-10 w-6 h-6 flex items-center justify-center transition-transform duration-300 group-[.active]:rotate-180">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#9CA3AF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </div>
+            <div class="flex flex-col flex-grow h-full w-full">
+              <!-- Logo top left -->
+              <div class="h-24 md:h-[110px] flex w-full">
+                <div class="w-24 md:w-[110px] flex items-center justify-center shrink-0"
+                  style="background-color: #1c36e4">
+                  <img src="./src/assets/Frame.png" loading="lazy" class="w-10 h-10 md:w-14 md:h-14 object-contain" alt="" />
                 </div>
-                <div class="p-6 md:p-8 xl:p-10 flex flex-col justify-end flex-grow transition-all duration-300">
-                  <div class="mb-4">
-                    <h3 class="text-[20px] md:text-[24px] xl:text-[26px] font-[400] text-[#111827] mb-4 leading-[1.1]">
-                      Living<br />Knowledge Graph
-                    </h3>
-                    <p class="text-[13px] md:text-[14px] text-[#6b7280] leading-[1.6]">
-                      Your always-on Deal knowledge graph that learns as you win.
-                    </p>
-                  </div>
-                  <!-- Hover Content -->
-                  <div
-                    class="opacity-0 max-h-0 overflow-hidden transition-all duration-500 ease-in-out group-hover:opacity-100 group-hover:max-h-[500px] group-hover:mt-6 group-[.active]:opacity-100 group-[.active]:max-h-[500px] group-[.active]:mt-6">
-                    <ul class="space-y-4">
-                      <li class="flex items-start gap-2.5">
-                        <svg class="w-4 h-4 text-gray-400 shrink-0 mt-[3px]" viewBox="0 0 24 24" fill="none"
-                          stroke="currentColor" stroke-width="1.5">
-                          <path d="M12 4v16M4 12h16M6.343 6.343l11.314 11.314M6.343 17.657l11.314-11.314" />
-                        </svg>
-                        <span class="text-[13px] text-[#6b7280] leading-[1.6]">Automatically indexes RFPs, security
-                          docs,
-                          proposals, and internal content</span>
-                      </li>
-                      <li class="flex items-start gap-2.5">
-                        <svg class="w-4 h-4 text-gray-400 shrink-0 mt-[3px]" viewBox="0 0 24 24" fill="none"
-                          stroke="currentColor" stroke-width="1.5">
-                          <path d="M12 4v16M4 12h16M6.343 6.343l11.314 11.314M6.343 17.657l11.314-11.314" />
-                        </svg>
-                        <span class="text-[13px] text-[#6b7280] leading-[1.6]">Stays current with real-time source
-                          updates
-                          &mdash; no manual maintenance</span>
-                      </li>
-                      <li class="flex items-start gap-2.5">
-                        <svg class="w-4 h-4 text-gray-400 shrink-0 mt-[3px]" viewBox="0 0 24 24" fill="none"
-                          stroke="currentColor" stroke-width="1.5">
-                          <path d="M12 4v16M4 12h16M6.343 6.343l11.314 11.314M6.343 17.657l11.314-11.314" />
-                        </svg>
-                        <span class="text-[13px] text-[#6b7280] leading-[1.6]">Gets smarter with every deal, surfacing
-                          the
-                          most relevant past responses</span>
-                      </li>
-                    </ul>
-                  </div>
+                <div class="flex-grow"
+                  style="background-image: repeating-linear-gradient(90deg, #f3f4f6 0px, #f3f4f6 1px, transparent 1px, transparent 12px);">
                 </div>
               </div>
-            </div>
-
-            <!-- Card 2: Cross-Team Collaboration -->
-            <div
-              class="feature-card group relative bg-[#F9FAFB] flex flex-col w-full lg:min-h-[400px] xl:min-h-[440px] cursor-pointer"
-              onclick="this.classList.toggle('active')" style="flex: 1">
-              <div class="flex flex-col flex-grow h-full w-full">
+              <!-- Text below -->
+              <div class="p-6 md:p-8 xl:p-10 flex flex-col flex-grow transition-all duration-300">
+                <div class="mb-4">
+                  <h3 class="text-[20px] md:text-[24px] xl:text-[26px] font-[400] text-[#111827] mb-4 leading-[1.1]">
+                    Cross-Team<br />Collaboration
+                  </h3>
+                  <p class="text-[13px] md:text-[14px] text-[#6b7280] leading-[1.6]">
+                    Align sales, legal, security, and SMEs around every Deal in one place
+                  </p>
+                </div>
                 <div
-                  class="p-6 md:p-8 xl:p-10 flex flex-col flex-grow order-2 lg:order-1 lg:justify-start transition-all duration-300">
-                  <div class="mb-4">
-                    <h3 class="text-[20px] md:text-[24px] xl:text-[26px] font-[400] text-[#111827] mb-4 leading-[1.1]">
-                      Cross-Team<br />Collaboration
-                    </h3>
-                    <p class="text-[13px] md:text-[14px] text-[#6b7280] leading-[1.6]">
-                      Align sales, legal, security, and SMEs around every Deal in one place
-                    </p>
-                  </div>
-                  <!-- Hover Content -->
-                  <div
-                    class="opacity-0 max-h-0 overflow-hidden transition-all duration-500 ease-in-out group-hover:opacity-100 group-hover:max-h-[500px] group-hover:mt-6 group-[.active]:opacity-100 group-[.active]:max-h-[500px] group-[.active]:mt-6">
-                    <ul class="space-y-4">
-                      <li class="flex items-start gap-2.5">
-                        <svg class="w-4 h-4 text-gray-400 shrink-0 mt-[3px]" viewBox="0 0 24 24" fill="none"
-                          stroke="currentColor" stroke-width="1.5">
-                          <path d="M12 4v16M4 12h16M6.343 6.343l11.314 11.314M6.343 17.657l11.314-11.314" />
-                        </svg>
-                        <span class="text-[13px] text-[#6b7280] leading-[1.6]">Assign sections to the right SMEs with
-                          role-based task management</span>
-                      </li>
-                      <li class="flex items-start gap-2.5">
-                        <svg class="w-4 h-4 text-gray-400 shrink-0 mt-[3px]" viewBox="0 0 24 24" fill="none"
-                          stroke="currentColor" stroke-width="1.5">
-                          <path d="M12 4v16M4 12h16M6.343 6.343l11.314 11.314M6.343 17.657l11.314-11.314" />
-                        </svg>
-                        <span class="text-[13px] text-[#6b7280] leading-[1.6]">Real-time co-editing with full version
-                          history and audit trail</span>
-                      </li>
-                      <li class="flex items-start gap-2.5">
-                        <svg class="w-4 h-4 text-gray-400 shrink-0 mt-[3px]" viewBox="0 0 24 24" fill="none"
-                          stroke="currentColor" stroke-width="1.5">
-                          <path d="M12 4v16M4 12h16M6.343 6.343l11.314 11.314M6.343 17.657l11.314-11.314" />
-                        </svg>
-                        <span class="text-[13px] text-[#6b7280] leading-[1.6]">Integrated review workflows to finalize
-                          proposals faster</span>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-                <div class="h-24 md:h-[110px] flex w-full order-1 lg:order-2 lg:mt-auto transition-all duration-300">
-                  <div class="flex-grow"
-                    style="background-image: repeating-linear-gradient(90deg, #f3f4f6 0px, #f3f4f6 1px, transparent 1px, transparent 12px);">
-                  </div>
-                  <div class="w-24 md:w-[110px] flex items-center justify-center shrink-0"
-                    style="background-color: #1c36e4">
-                    <img src="./src/assets/Frame.png" loading="lazy" class="w-10 h-10 md:w-14 md:h-14 object-contain"
-                      alt="" />
-                  </div>
+                  class="opacity-0 max-h-0 overflow-hidden transition-all duration-500 ease-in-out group-hover:opacity-100 group-hover:max-h-[500px] group-hover:mt-6 group-[.active]:opacity-100 group-[.active]:max-h-[500px] group-[.active]:mt-6">
+                  <ul class="space-y-4">
+                    <li class="flex items-start gap-2.5">
+                      <svg class="w-4 h-4 text-gray-400 shrink-0 mt-[3px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M12 4v16M4 12h16M6.343 6.343l11.314 11.314M6.343 17.657l11.314-11.314" />
+                      </svg>
+                      <span class="text-[13px] text-[#6b7280] leading-[1.6]">Assign sections to the right SMEs with role-based task management</span>
+                    </li>
+                    <li class="flex items-start gap-2.5">
+                      <svg class="w-4 h-4 text-gray-400 shrink-0 mt-[3px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M12 4v16M4 12h16M6.343 6.343l11.314 11.314M6.343 17.657l11.314-11.314" />
+                      </svg>
+                      <span class="text-[13px] text-[#6b7280] leading-[1.6]">Real-time co-editing with full version history and audit trail</span>
+                    </li>
+                    <li class="flex items-start gap-2.5">
+                      <svg class="w-4 h-4 text-gray-400 shrink-0 mt-[3px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M12 4v16M4 12h16M6.343 6.343l11.314 11.314M6.343 17.657l11.314-11.314" />
+                      </svg>
+                      <span class="text-[13px] text-[#6b7280] leading-[1.6]">Integrated review workflows to finalize proposals faster</span>
+                    </li>
+                  </ul>
                 </div>
               </div>
             </div>
+          </div>
 
-
-            <!-- Card 4: Governance & Analytics -->
-            <div
-              class="feature-card group relative bg-[#F9FAFB] flex flex-col w-full lg:min-h-[400px] xl:min-h-[440px] cursor-pointer"
-              onclick="this.classList.toggle('active')" style="flex: 1">
-              <div class="flex flex-col flex-grow h-full w-full">
+          <!-- Card 3: Evidence & Citation Engine — logo BOTTOM RIGHT, text TOP, arrow TOP RIGHT -->
+          <div
+            class="feature-card group relative bg-[#F9FAFB] flex flex-col w-full lg:min-h-[400px] xl:min-h-[440px] cursor-pointer"
+            onclick="this.classList.toggle('active')" style="flex: 1">
+            <div class="absolute right-3 top-3 z-10 w-6 h-6 flex items-center justify-center transition-transform duration-300 group-[.active]:rotate-180">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#9CA3AF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </div>
+            <div class="flex flex-col flex-grow h-full w-full">
+              <!-- Text top -->
+              <div class="p-6 md:p-8 xl:p-10 flex flex-col flex-grow transition-all duration-300">
+                <div class="mb-4">
+                  <h3 class="text-[20px] md:text-[24px] xl:text-[26px] font-[400] text-[#111827] mb-4 leading-[1.1]">
+                    Evidence &amp; Citation<br />Engine
+                  </h3>
+                  <p class="text-[13px] md:text-[14px] text-[#6b7280] leading-[1.6]">
+                    Answers you can trust &mdash; with sources to prove it.
+                  </p>
+                </div>
                 <div
-                  class="p-6 md:p-8 xl:p-10 flex flex-col flex-grow order-2 lg:order-1 lg:justify-start transition-all duration-300">
-                  <div class="mb-4">
-                    <h3 class="text-[20px] md:text-[24px] xl:text-[26px] font-[400] text-[#111827] mb-4 leading-[1.1]">
-                      Governance &amp;<br />Analytics
-                    </h3>
-                    <p class="text-[13px] md:text-[14px] text-[#6b7280] leading-[1.6]">
-                      Full visibility into every Deal &mdash; from first draft to final submission
-                    </p>
-                  </div>
-                  <!-- Hover Content -->
-                  <div
-                    class="opacity-0 max-h-0 overflow-hidden transition-all duration-500 ease-in-out group-hover:opacity-100 group-hover:max-h-[500px] group-hover:mt-6 group-[.active]:opacity-100 group-[.active]:max-h-[500px] group-[.active]:mt-6">
-                    <ul class="space-y-4">
-                      <li class="flex items-start gap-2.5">
-                        <svg class="w-4 h-4 text-gray-400 shrink-0 mt-[3px]" viewBox="0 0 24 24" fill="none"
-                          stroke="currentColor" stroke-width="1.5">
-                          <path d="M12 4v16M4 12h16M6.343 6.343l11.314 11.314M6.343 17.657l11.314-11.314" />
-                        </svg>
-                        <span class="text-[13px] text-[#6b7280] leading-[1.6]">Track RFP status, completion rates, and
-                          submission deadlines in real time</span>
-                      </li>
-                      <li class="flex items-start gap-2.5">
-                        <svg class="w-4 h-4 text-gray-400 shrink-0 mt-[3px]" viewBox="0 0 24 24" fill="none"
-                          stroke="currentColor" stroke-width="1.5">
-                          <path d="M12 4v16M4 12h16M6.343 6.343l11.314 11.314M6.343 17.657l11.314-11.314" />
-                        </svg>
-                        <span class="text-[13px] text-[#6b7280] leading-[1.6]">Analyze win/loss patterns to improve
-                          future
-                          proposal strategy</span>
-                      </li>
-                      <li class="flex items-start gap-2.5">
-                        <svg class="w-4 h-4 text-gray-400 shrink-0 mt-[3px]" viewBox="0 0 24 24" fill="none"
-                          stroke="currentColor" stroke-width="1.5">
-                          <path d="M12 4v16M4 12h16M6.343 6.343l11.314 11.314M6.343 17.657l11.314-11.314" />
-                        </svg>
-                        <span class="text-[13px] text-[#6b7280] leading-[1.6]">Enforce content standards with approval
-                          workflows and compliance controls</span>
-                      </li>
-                    </ul>
-                  </div>
+                  class="opacity-0 max-h-0 overflow-hidden transition-all duration-500 ease-in-out group-hover:opacity-100 group-hover:max-h-[500px] group-hover:mt-6 group-[.active]:opacity-100 group-[.active]:max-h-[500px] group-[.active]:mt-6">
+                  <ul class="space-y-4">
+                    <li class="flex items-start gap-2.5">
+                      <svg class="w-4 h-4 text-gray-400 shrink-0 mt-[3px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M12 4v16M4 12h16M6.343 6.343l11.314 11.314M6.343 17.657l11.314-11.314" />
+                      </svg>
+                      <span class="text-[13px] text-[#6b7280] leading-[1.6]">Every response is automatically linked to the source document it was drawn from</span>
+                    </li>
+                    <li class="flex items-start gap-2.5">
+                      <svg class="w-4 h-4 text-gray-400 shrink-0 mt-[3px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M12 4v16M4 12h16M6.343 6.343l11.314 11.314M6.343 17.657l11.314-11.314" />
+                      </svg>
+                      <span class="text-[13px] text-[#6b7280] leading-[1.6]">Highlights low-confidence answers for human review before submission</span>
+                    </li>
+                    <li class="flex items-start gap-2.5">
+                      <svg class="w-4 h-4 text-gray-400 shrink-0 mt-[3px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M12 4v16M4 12h16M6.343 6.343l11.314 11.314M6.343 17.657l11.314-11.314" />
+                      </svg>
+                      <span class="text-[13px] text-[#6b7280] leading-[1.6]">Builds evaluator trust with transparent, auditable response generation</span>
+                    </li>
+                  </ul>
                 </div>
-                <div class="h-24 md:h-[110px] flex w-full order-1 lg:order-2 lg:mt-auto transition-all duration-300">
-                  <div class="flex-grow"
-                    style="background-image: repeating-linear-gradient(90deg, #f3f4f6 0px, #f3f4f6 1px, transparent 1px, transparent 12px);">
-                  </div>
-                  <div class="w-24 md:w-[110px] flex items-center justify-center shrink-0"
-                    style="background-color: #1c36e4">
-                    <img src="./src/assets/governance.png" loading="lazy"
-                      class="w-10 h-10 md:w-14 md:h-14 object-contain" alt="" />
-                  </div>
+              </div>
+              <!-- Logo bottom right -->
+              <div class="h-24 md:h-[110px] flex w-full mt-auto">
+                <div class="flex-grow"
+                  style="background-image: repeating-linear-gradient(90deg, #f3f4f6 0px, #f3f4f6 1px, transparent 1px, transparent 12px);">
+                </div>
+                <div class="w-24 md:w-[110px] flex items-center justify-center shrink-0"
+                  style="background-color: #1c36e4">
+                  <img src="./src/assets/evidence.png" loading="lazy" class="w-10 h-10 md:w-14 md:h-14 object-contain" alt="" />
                 </div>
               </div>
             </div>
+          </div>
 
-            <!-- Card 3: Evidence & Citation Engine -->
-            <div
-              class="feature-card group relative bg-[#F9FAFB] flex flex-col w-full lg:min-h-[400px] xl:min-h-[440px] cursor-pointer"
-              onclick="this.classList.toggle('active')" style="flex: 1">
-              <div class="flex flex-col flex-grow h-full w-full">
-                <div class="h-24 md:h-[110px] flex w-full transition-all duration-300">
-                  <div class="w-24 md:w-[110px] flex items-center justify-center shrink-0"
-                    style="background-color: #1c36e4">
-                    <img src="./src/assets/evidence.png" loading="lazy" class="w-10 h-10 md:w-14 md:h-14 object-contain"
-                      alt="" />
-                  </div>
-                  <div class="flex-grow"
-                    style="background-image: repeating-linear-gradient(90deg, #f3f4f6 0px, #f3f4f6 1px, transparent 1px, transparent 12px);">
-                  </div>
+          <!-- Card 4: Governance & Analytics — logo TOP LEFT, text below, arrow CENTER RIGHT -->
+          <div
+            class="feature-card group relative bg-[#F9FAFB] flex flex-col w-full lg:min-h-[400px] xl:min-h-[440px] cursor-pointer"
+            onclick="this.classList.toggle('active')" style="flex: 1">
+            <div class="absolute right-3 top-1/2 -translate-y-1/2 z-10 w-6 h-6 flex items-center justify-center transition-transform duration-300 group-[.active]:rotate-180">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#9CA3AF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </div>
+            <div class="flex flex-col flex-grow h-full w-full">
+              <!-- Logo top left -->
+              <div class="h-24 md:h-[110px] flex w-full">
+                <div class="w-24 md:w-[110px] flex items-center justify-center shrink-0"
+                  style="background-color: #1c36e4">
+                  <img src="./src/assets/governance.png" loading="lazy" class="w-10 h-10 md:w-14 md:h-14 object-contain" alt="" />
                 </div>
-                <div class="p-6 md:p-8 xl:p-10 flex flex-col justify-end flex-grow transition-all duration-300">
-                  <div class="mb-4">
-                    <h3 class="text-[20px] md:text-[24px] xl:text-[26px] font-[400] text-[#111827] mb-4 leading-[1.1]">
-                      Evidence &amp; Citation<br />Engine
-                    </h3>
-                    <p class="text-[13px] md:text-[14px] text-[#6b7280] leading-[1.6]">
-                      Answers you can trust &mdash; with sources to prove it.
-                    </p>
-                  </div>
-                  <!-- Hover Content -->
-                  <div
-                    class="opacity-0 max-h-0 overflow-hidden transition-all duration-500 ease-in-out group-hover:opacity-100 group-hover:max-h-[500px] group-hover:mt-6 group-[.active]:opacity-100 group-[.active]:max-h-[500px] group-[.active]:mt-6">
-                    <ul class="space-y-4">
-                      <li class="flex items-start gap-2.5">
-                        <svg class="w-4 h-4 text-gray-400 shrink-0 mt-[3px]" viewBox="0 0 24 24" fill="none"
-                          stroke="currentColor" stroke-width="1.5">
-                          <path d="M12 4v16M4 12h16M6.343 6.343l11.314 11.314M6.343 17.657l11.314-11.314" />
-                        </svg>
-                        <span class="text-[13px] text-[#6b7280] leading-[1.6]">Every response is automatically linked to
-                          the source document it was drawn from</span>
-                      </li>
-                      <li class="flex items-start gap-2.5">
-                        <svg class="w-4 h-4 text-gray-400 shrink-0 mt-[3px]" viewBox="0 0 24 24" fill="none"
-                          stroke="currentColor" stroke-width="1.5">
-                          <path d="M12 4v16M4 12h16M6.343 6.343l11.314 11.314M6.343 17.657l11.314-11.314" />
-                        </svg>
-                        <span class="text-[13px] text-[#6b7280] leading-[1.6]">Highlights low-confidence answers for
-                          human
-                          review before submission</span>
-                      </li>
-                      <li class="flex items-start gap-2.5">
-                        <svg class="w-4 h-4 text-gray-400 shrink-0 mt-[3px]" viewBox="0 0 24 24" fill="none"
-                          stroke="currentColor" stroke-width="1.5">
-                          <path d="M12 4v16M4 12h16M6.343 6.343l11.314 11.314M6.343 17.657l11.314-11.314" />
-                        </svg>
-                        <span class="text-[13px] text-[#6b7280] leading-[1.6]">Builds evaluator trust with transparent,
-                          auditable response generation</span>
-                      </li>
-                    </ul>
-                  </div>
+                <div class="flex-grow"
+                  style="background-image: repeating-linear-gradient(90deg, #f3f4f6 0px, #f3f4f6 1px, transparent 1px, transparent 12px);">
+                </div>
+              </div>
+              <!-- Text below -->
+              <div class="p-6 md:p-8 xl:p-10 flex flex-col flex-grow transition-all duration-300">
+                <div class="mb-4">
+                  <h3 class="text-[20px] md:text-[24px] xl:text-[26px] font-[400] text-[#111827] mb-4 leading-[1.1]">
+                    Governance &amp;<br />Analytics
+                  </h3>
+                  <p class="text-[13px] md:text-[14px] text-[#6b7280] leading-[1.6]">
+                    Full visibility into every Deal &mdash; from first draft to final submission
+                  </p>
+                </div>
+                <div
+                  class="opacity-0 max-h-0 overflow-hidden transition-all duration-500 ease-in-out group-hover:opacity-100 group-hover:max-h-[500px] group-hover:mt-6 group-[.active]:opacity-100 group-[.active]:max-h-[500px] group-[.active]:mt-6">
+                  <ul class="space-y-4">
+                    <li class="flex items-start gap-2.5">
+                      <svg class="w-4 h-4 text-gray-400 shrink-0 mt-[3px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M12 4v16M4 12h16M6.343 6.343l11.314 11.314M6.343 17.657l11.314-11.314" />
+                      </svg>
+                      <span class="text-[13px] text-[#6b7280] leading-[1.6]">Track RFP status, completion rates, and submission deadlines in real time</span>
+                    </li>
+                    <li class="flex items-start gap-2.5">
+                      <svg class="w-4 h-4 text-gray-400 shrink-0 mt-[3px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M12 4v16M4 12h16M6.343 6.343l11.314 11.314M6.343 17.657l11.314-11.314" />
+                      </svg>
+                      <span class="text-[13px] text-[#6b7280] leading-[1.6]">Analyze win/loss patterns to improve future proposal strategy</span>
+                    </li>
+                    <li class="flex items-start gap-2.5">
+                      <svg class="w-4 h-4 text-gray-400 shrink-0 mt-[3px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M12 4v16M4 12h16M6.343 6.343l11.314 11.314M6.343 17.657l11.314-11.314" />
+                      </svg>
+                      <span class="text-[13px] text-[#6b7280] leading-[1.6]">Enforce content standards with approval workflows and compliance controls</span>
+                    </li>
+                  </ul>
                 </div>
               </div>
             </div>
-
-
-
           </div>
 
         </div>
       </div>
-  </section>
-
+    </div>
+  </div>
+</section>
   <section data-section id="security" class="scroll-mt-5">
-    <div class="w-full bg-white overflow-hidden px-6 md:px-12 font-sans">
+    <div class="w-full bg-white overflow-hidden px-6 md:px-12 font-sans" style="padding: clamp(2px, 1.5vw, 16px) clamp(2px, 2vw, 24px);">
       <div class="max-w-300 mx-auto">
-        <div class="flex flex-col items-start justify-start text-left">
+        <div class="flex flex-col items-start justify-start text-left" style="padding: clamp(38px, 7vw, 56px) clamp(2px, 2vw, 24px);">
           <div>
             <p style="font-size: clamp(14px,3vw,15px); color: #6B7280; margin-bottom: 3px;">Security And Compliance</p>
             <h2 style="
