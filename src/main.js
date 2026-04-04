@@ -573,17 +573,17 @@ import wfIcon9 from "./assets/workflow-icon-9.png";
     },
     {
       title: "Final Proposal",
-      desc: "Deliver a polished proposal ready for submission.",
+      desc: "Deliver a polished, ready-to-submit proposal to the buyer.",
       icon: wfIcon7,
     },
     {
       title: "Win–Loss Capture",
-      desc: "Capture deal outcomes and key insights.",
+      desc: "Capture deal outcomes, scores, and key learning insights.",
       icon: wfIcon8,
     },
     {
       title: "Smarter Next Deal",
-      desc: "Feed insights back to improve future responses.",
+      desc: "Feed insights back into the engine to improve future responses.",
       icon: wfIcon9,
     },
   ];
