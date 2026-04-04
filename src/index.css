@@ -455,7 +455,7 @@ section[data-section] {
 }
 
 .wf-wrap {
-  padding: clamp(52px, 13vw, 68px) clamp(12px, 4vw, 20px) 0 !important;
+  padding: clamp(44px, 11vw, 56px) clamp(12px, 4vw, 20px) 0 !important;
   box-sizing: border-box;
   max-width: 600px;
   font-size: clamp(20px, 5.97vw, 46px);
