@@ -640,7 +640,7 @@ section[data-section] {
 }
 
 .step-body {
-  padding: 4px 8px 8px 6px;
+  padding: 8px 8px 16px 6px;
   flex: 1;
 }
 
