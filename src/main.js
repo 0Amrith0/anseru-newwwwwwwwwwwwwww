@@ -813,7 +813,7 @@ import wfIcon9 from "./assets/workflow-icon-9.png";
       seg.style.top = `${segTop}px`;
       seg.style.height = `${segHeight}px`;
       seg.style.left = `${allWrappers[0].offsetLeft + RADIUS}px`; // force centering
-      seg.style.opacity = '0.2';
+      seg.style.opacity = '1';
       stepsList.appendChild(seg);
     });
 
