@@ -452,7 +452,9 @@ section[data-section] {
   height: clamp(300px, 105vw, 360px);
   position: relative;
   perspective: 1000px;
-}.wf-wrap {
+}
+
+.wf-wrap {
   padding: clamp(52px, 13vw, 68px) clamp(12px, 4vw, 20px) 0 !important;
   box-sizing: border-box;
   max-width: 600px;
@@ -466,6 +468,7 @@ section[data-section] {
   position: relative;
   overflow: hidden;
 }
+
 @media (min-width: 1024px) {
   .wf-wrap {
     display: none !important;
@@ -542,9 +545,10 @@ section[data-section] {
   z-index: 2;
   opacity: 0.4;
   transition: opacity 0.5s ease;
-  min-height: 88px;
-  height: 88px;
+  min-height: 82px;
+  height: 82px;
 }
+
 .step-row.active {
   opacity: 1;
 }
@@ -560,6 +564,7 @@ section[data-section] {
   filter: brightness(0) invert(1);
   opacity: 1;
 }
+
 .step-node-col {
   position: relative;
   width: 49.5px;
@@ -568,7 +573,7 @@ section[data-section] {
   flex-direction: column;
   align-items: center;
   align-self: stretch;
-  min-height: 88px;
+  min-height: 82px;
 }
 
 /* Segments are drawn BETWEEN circles — never through them */
@@ -576,7 +581,8 @@ section[data-section] {
   position: absolute;
   left: 24.75px;
   width: 1.5px;
-  background: #D9D9D9 !important;  /* add !important */
+  background: #D9D9D9 !important;
+  /* add !important */
   transform: translateX(-50%);
   z-index: 0;
   pointer-events: none;
@@ -606,7 +612,8 @@ section[data-section] {
   top: 0;
   width: 100%;
   height: 100%;
-  border: 2px solid #D9D9D9 !important;  /* add !important */
+  border: 2px solid #D9D9D9 !important;
+  /* add !important */
   border-radius: 50%;
   clip-path: inset(0 48% 0 0);
   pointer-events: none;
@@ -644,17 +651,19 @@ section[data-section] {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  min-height: 88px;
-  height: 88px;
+  min-height: 82px;
+  height: 82px;
 }
+
 .step-title {
-  font-size: clamp(13px, 3.8vw, 15px); /* increased size */
+  font-size: clamp(13px, 3.8vw, 15px);
+  /* increased size */
   font-weight: 500;
   color: #111;
   margin: 0;
   line-height: 1.3;
   /* Occupy exactly 2 lines of vertical volume */
-  
+
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
@@ -662,7 +671,8 @@ section[data-section] {
 }
 
 .step-desc {
-  font-size: clamp(11px, 3.2vw, 13px); /* increased size */
+  font-size: clamp(11px, 3.2vw, 13px);
+  /* increased size */
   color: #666;
   margin: 0;
   line-height: 1.35;
@@ -673,6 +683,7 @@ section[data-section] {
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
+
 /* Symbols */
 .connector-symbols {
   position: absolute;
